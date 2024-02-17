@@ -1,0 +1,3 @@
+# Shoe store where you can find your best footwear...
+
+step 1: setup tailwindcss
