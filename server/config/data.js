@@ -1,4 +1,4 @@
-export const products = [
+ const products = [
     {
         id: 'product1',
         url: 'https://rukminim2.flixcart.com/image/612/612/xif0q/shoe/r/a/o/-original-imagsn6p2dzrc6zy.jpeg?q=70',
@@ -324,3 +324,5 @@ export const products = [
         tagline: 'Grab Now!'
     }
 ];
+
+module.exports = products

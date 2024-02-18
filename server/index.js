@@ -1,6 +1,7 @@
 const express = require("express");
 require("dotenv").config();
 const cors = require("cors");
+const  uploadData  = require("./uploadingDataToDB");
 
 
 
@@ -14,3 +15,6 @@ app.get("/", (req, res) => {
 })
 
 app.listen(PORT , () => console.log(`server is running on http://localhost:${PORT}`))
+
+
+uploadData()
