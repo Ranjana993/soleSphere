@@ -1,13 +1,15 @@
 const products = require("./config/data");
+const productModel = require("./models/productModel");
+
 
 const uploadData = async () => {
     try {
-        // await Productmodel.deleteMany({});
-        await Productmodel.insertMany(products);
+        await productModel.deleteMany({});
+        await productModel.insertMany(products);
         console.log("Product Saved (imported) successfully")
     } catch (error) {
         console.log(error.message);
     }
 }
 
-module.exports= uploadData;
+module.exports = uploadData;
