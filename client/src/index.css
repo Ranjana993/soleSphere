@@ -6,19 +6,30 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Poppins",sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
+/* width */
+::-webkit-scrollbar {
+  width: 0.5rem;
+}
 
+/* Track */
+::-webkit-scrollbar-track {
+  background: white;
+}
 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(0, 2, 4);
+  /* border-radius: 12px;
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  -ms-border-radius: 12px;
+  -o-border-radius: 12px; */
+}
 
-
-
-
-
-
-
-
-
-
-
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(4, 31, 56);
+}
