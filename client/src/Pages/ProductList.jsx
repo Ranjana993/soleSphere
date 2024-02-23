@@ -1,11 +1,18 @@
 import { useEffect, useState } from 'react'
 import axios from "axios"
+import  {useDispatch} from "react-redux"
+// import { addMockupData } from '../../redux/store'
+import { addData } from '../../redux/slice/dataSlice'
+
 
 const ProductList = () => {
     const [data, setData] = useState([])
+    const dispatch = useDispatch();
     const getAllData = async () => {
         const res = await axios.get("http://localhost:8000/get-products");
+        
         console.log(res?.data?.products);
+        dispatch(addData(res?.data?.products))
         setData(res?.data?.products)
     }
     useEffect(() => {
@@ -23,10 +30,9 @@ const ProductList = () => {
             </div>
 
             <div className='flex gap-2 m-auto flex-wrap items-center justify-center'>
-
                 {
                     data.map(item => (
-                        <div key={item.id} className="relative m-10 flex w-full max-w-xs flex-col overflow-hidden rounded-sm border shadow-lg hover:shadow-gray-500 border-gray-100 bg-white" >
+                        <div key={item.id} className="relative m-10 border border-gray-300 flex w-full max-w-xs flex-col overflow-hidden rounded-sm  shadow-lg hover:shadow-gray-100 bg-white" >
                             <a className="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-sm" href="#">
                                 <img className="object-cover w-full" src={item?.url} alt="product image" />
                                 <span className="absolute top-0 left-0 m-2 rounded-sm bg-black px-2 text-center text-sm font-medium text-white">{item?.price?.discount}% OFF</span>
