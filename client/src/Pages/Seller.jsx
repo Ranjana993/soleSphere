@@ -1,9 +1,10 @@
-// import SignupAsASeller from "./SignupAsASeller"
+
+import SignupAsASeller from "./SignupAsASeller"
 
 const Seller = () => {
     return (
         <div>
-            {/* <SignupAsASeller /> */}
+            <SignupAsASeller />
         </div>
     )
 }

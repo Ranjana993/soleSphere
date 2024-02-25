@@ -13,7 +13,7 @@ const Header = () => {
 
     return (
         <>
-            <nav className="bg-white border-gray-200 dark:bg-gray-900">
+            <nav className="bg-white border-gray-200 z-[999] dark:bg-gray-900">
                 <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
                     <Link to={"/"} className="flex items-center space-x-3 rtl:space-x-reverse">
                         <img src={Logo} className="h-8" alt="Flowbite Logo" />
@@ -85,7 +85,7 @@ const Header = () => {
                     </div>
                     {
                         isMenuOpen && (
-                            <div className=" absolute mt-6 inset-x-0 top-10 z-[99999] origin-top-right transform p-2 transition lg:hidden " id="navbar-search">
+                            <div className="bg-gray-400  absolute mt-6 inset-x-0 m-2 top-44 z-[99999] origin-top-right transform p-2 transition lg:hidden " id="navbar-search">
                                 <div className="relative mt-3 md:hidden">
                                     <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
                                         <svg className="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
