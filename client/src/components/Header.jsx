@@ -33,7 +33,9 @@ const Header = () => {
                     <div className="md:order-2">
                         <div className="flex flex-row gap-4">
                             <div>
-                                <UserRound className="w-[100%] text-white hover:rounded-full hover:text-orange-700" />
+                                <Link to={"/dashboard"} >
+                                    <UserRound className="w-[100%] text-white hover:rounded-full hover:text-orange-700" />
+                                </Link>
                             </div>
                             <div>
                                 <ShoppingCart className=" text-white hover:rounded-full hover:text-orange-700" />
