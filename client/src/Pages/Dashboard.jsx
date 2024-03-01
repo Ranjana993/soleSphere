@@ -1,7 +1,17 @@
+import MainUI from "./MainUI"
+import Sidebar from "./Sidebar"
+
 
 const Dashboard = () => {
   return (
-    <div>Dashboard</div>
+    <div className="flex gap-2">
+      <div className="w-[15%]">
+        <Sidebar />
+      </div>
+      <div className="w-[85%]">
+        <MainUI />
+      </div>
+    </div>
   )
 }
 
