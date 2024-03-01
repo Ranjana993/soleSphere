@@ -9,7 +9,7 @@ const ProductList = () => {
     const [data, setData] = useState([])
     const dispatch = useDispatch();
     const getAllData = async () => {
-        const res = await axios.get("https://sole-sphere-backend.vercel.app/get-products");
+        const res = await axios.get("http://localhost:8000/get-products");
         
         console.log(res?.data?.products);
         dispatch(addData(res?.data?.products))
