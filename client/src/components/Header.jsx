@@ -6,14 +6,20 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [open, setOpen] = useState(false)
+
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
     };
+    const handleOpen = () => {
+        setOpen(!open);
+        console.log("open ==>  ", open);
+    };
 
     return (
         <>
-            <nav className="bg-white border-gray-200 z-[999] dark:bg-gray-900">
+            <nav className="bg-white relative border-gray-200 z-[999] dark:bg-gray-900">
                 <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
                     <Link to={"/"} className="flex items-center space-x-3 rtl:space-x-reverse">
                         <img src={Logo} className="h-8" alt="Flowbite Logo" />
@@ -33,8 +39,44 @@ const Header = () => {
                     <div className="md:order-2">
                         <div className="flex flex-row gap-4">
                             <div>
-                                <Link to={"/dashboard"} >
-                                    <UserRound className="w-[100%] text-white hover:rounded-full hover:text-orange-700" />
+                                <Link to={"#"} >
+                                    {/* <UserRound className="w-[100%] text-white hover:rounded-full hover:text-orange-700" /> */}
+
+
+                                    <div onClick={handleOpen} className="relative">
+                                        <img className="w-8 h-8 rounded-full" src="https://buffer.com/library/content/images/size/w1200/2023/10/free-images.jpg" alt="user photo" />
+
+                                        {/* Dropdown menu */}
+                                        {
+                                            open && (
+                                                <div className=" absolute top-45 bg-red divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
+                                                    <div className="px-4 py-3 text-sm text-gray-900 dark:text-white">
+                                                        <div>Bonnie Green</div>
+                                                        {/* <div className="font-medium truncate">name@flowbite.com</div> */}
+                                                    </div>
+                                                    <ul className="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownUserAvatarButton">
+                                                        <li>
+                                                            <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sign Out</a>
+                                                        </li>
+                                                    </ul>
+                                                    
+                                                </div>
+                                            )
+                                        }
+
+                                    </div>
+
+
+
                                 </Link>
                             </div>
                             <div>
