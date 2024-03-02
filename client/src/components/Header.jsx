@@ -1,7 +1,7 @@
 
 import { useState } from "react";
 import Logo from "../assets/logo1.png"
-import { Gift, Menu, ShoppingCart, UserRound, X } from "lucide-react";
+import { Gift, Menu, ShoppingCart, X } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Header = () => {
@@ -51,24 +51,18 @@ const Header = () => {
                                             open && (
                                                 <div className=" absolute top-45 bg-red divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
                                                     <div className="px-4 py-3 text-sm text-gray-900 dark:text-white">
-                                                        <div>Bonnie Green</div>
-                                                        {/* <div className="font-medium truncate">name@flowbite.com</div> */}
+                                                        <div>Ranjana Yadav</div>
+                                                        
                                                     </div>
                                                     <ul className="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownUserAvatarButton">
                                                         <li>
-                                                            <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
+                                                            <Link to="/dashboard" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</Link>
                                                         </li>
                                                         <li>
                                                             <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sign Out</a>
                                                         </li>
                                                     </ul>
-                                                    
+
                                                 </div>
                                             )
                                         }
@@ -80,7 +74,9 @@ const Header = () => {
                                 </Link>
                             </div>
                             <div>
-                                <ShoppingCart className=" text-white hover:rounded-full hover:text-orange-700" />
+                                <Link to="/cart">
+                                    <ShoppingCart className=" text-white hover:rounded-full hover:text-orange-700" />
+                                </Link>
                             </div>
                             <div>
                                 <Gift className=" text-white hover:rounded-full hover:text-orange-700" />
