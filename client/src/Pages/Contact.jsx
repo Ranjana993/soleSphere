@@ -33,7 +33,7 @@ const Contact = () => {
                         Send me a copy of this message
                       </label>
                     </div>
-                    <button type="button" data-te-ripple-init data-te-ripple-color="light" className="mb-6 inline-block w-full rounded bg-blue-700 px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal text-white transition duration-150 ease-in-out hover:bg-primary-600 focus:outline-none focus:ring-0 lg:mb-0">
+                    <button type="button" data-te-ripple-init data-te-ripple-color="light" className="mb-6 inline-block w-full border border-gray-400 font-bold rounded bg-blue-700 px-6 pt-2.5 pb-2 text-xs uppercase leading-normal text-white transition duration-150 ease-in-out hover:bg-primary-600 focus:outline-none focus:ring-0 lg:mb-0">
                       Send
                     </button>
                   </form>
