@@ -2,14 +2,19 @@ import logo1 from "../assets/return.png"
 import logo2 from "../assets/secure.png"
 import logo3 from "../assets/topbrand.png"
 import logo4 from "../assets/freedelivery.png"
+import { Share, ShoppingCart } from "lucide-react"
 
 const Description = () => {
 
   return (
     <>
       <div className="flex flex-col lg:flex-row  justify-center bg-white gap-2">
-        <div className="w-full p-4 lg:w-1/2  flex items-center justify-center py-4">
+        <div className="w-full p-4 lg:w-1/2  flex flex-col items-center justify-center py-4">
           <img className="w-full border border-slate-300 lg:w-3/4 lg:h-3/4 " src="https://rukminim2.flixcart.com/image/612/612/xif0q/shoe/c/u/u/-original-imagg4kpz6ehhxfg.jpeg?q=70" alt="" />
+          <div className="flex flex-col py-4 gap-1 lg:flex-row ">
+            <button className="bg-yellow-500 hover:bg-yellow-600 w-72 lg:w-72 text-white flex items-center justify-center gap-4 px-4 py-4"><ShoppingCart className=" text-white hover:rounded-full " /> Add to cart</button>
+            <button className="bg-orange-500 hover:bg-orange-600 w-72 lg:w-64 text-white flex items-center justify-center gap-4  py-4 px-4"><Share className=" text-white hover:rounded-full " /> Buy now</button>
+          </div>
         </div>
         <div className="w-full p-4 lg:w-1/2  lg:py-12">
           <h4 className="text-2xl">Puma Unisex-Adult Leadcat 2.0 Shower Slide Sandal </h4>
