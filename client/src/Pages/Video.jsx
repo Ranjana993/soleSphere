@@ -5,14 +5,13 @@ const Video = () => {
 
     useEffect(() => {
         const handleVideoEnd = () => {
-            iframeRef.current.src += '&amp;autoplay=1'; // Reloads the video when it ends
+            iframeRef.current.src += '&amp;autoplay=1';
         };
 
         // Add event listener for 'ended' event
         iframeRef.current.addEventListener('ended', handleVideoEnd);
 
         return () => {
-            // Remove the event listener when the component is unmounted
             iframeRef.current.removeEventListener('ended', handleVideoEnd);
         };
     }, []);

@@ -1,6 +1,8 @@
 import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import axios from "axios"
+import imgLogo from "../assets/become-seller.avif"
+
 
 const SignupAsASeller = () => {
     const [userData, setUserData] = useState({
@@ -26,7 +28,7 @@ const SignupAsASeller = () => {
         <>
             <div className="bg-fixed relative top-0 ">
                 <div className="absolute" >
-                    <img src="https://images.unsplash.com/photo-1684478126992-e46972d4823d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" className="h-screen w-screen opacity-80" alt="" />
+                    <img src={imgLogo} className="h-screen w-screen opacity-80" alt="imgLogo" />
                 </div>
                 <section className="bg-gray-50 ">
                     <div className="flex flex-col items-center justify-center px-6 py-4 mx-auto md:h-screen form-container lg:py-0">
@@ -54,7 +56,7 @@ const SignupAsASeller = () => {
                                             <input id="terms" aria-describedby="terms" type="checkbox" className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800" required />
                                         </div>
                                         <div className="ml-3 text-sm">
-                                            <label htmlFor="terms" className="font-light text-gray-500 dark:text-gray-300">I accept the <a className="font-medium text-primary-600 hover:underline dark:text-primary-500" href="#">Terms and Conditions</a></label>
+                                            <label htmlFor="terms" className="font-light text-gray-500 dark:text-gray-300">I accept the <Link className="font-medium text-primary-600 hover:underline dark:text-primary-500" to="#">Terms and Conditions</Link></label>
                                         </div>
                                     </div>
                                     <button type="submit" onSubmit={handleSubmit} className="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Create an account</button>
@@ -66,11 +68,7 @@ const SignupAsASeller = () => {
                         </div>
                     </div>
                 </section>
-
-
             </div>
-
-
         </>
     )
 }
