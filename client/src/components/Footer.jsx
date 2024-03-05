@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import logo from "../assets/logo1.png"
 
 const Footer = () => {
@@ -11,19 +12,19 @@ const Footer = () => {
                         <div
                             className="col-span-4 md:col-span-8 lg:col-span-4"
                             aria-labelledby="footer-header">
-                            <a
+                            <Link 
                                 id="WindUI-5-logo"
                                 aria-label="WindUI logo"
                                 aria-current="page"
                                 className="flex items-center gap-2 mb-3 text-base font-medium leading-6 whitespace-nowrap focus:outline-none text-white hover:text-blue-700 cursor-pointer"
-                                href="#">
+                                to="#">
                                 <img
                                     src={logo}
                                     className="h-12 sm:h-16 transform hover:hue-rotate-30 transition duration-200 ease-in-out rounded-full"
                                     alt=""
                                 />
                                 soleSphere
-                            </a>
+                            </Link>
                             <p className="text-left">
                                 Order your comfort at reasonable price
                             </p>
@@ -38,32 +39,32 @@ const Footer = () => {
                             </h3>
                             <ul>
                                 <li className="mb-2 leading-6">
-                                    <a
+                                    <Link
                                         href="#"
                                         className="transition-colors duration-300 hover:text-blue-500 focus:text-blue-600 cursor-pointer">
                                         Features
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li className="mb-2 leading-6">
-                                    <a
-                                        href="#"
+                                    <Link
+                                        to="#"
                                         className="transition-colors duration-300 hover:text-blue-500 focus:text-blue-600 cursor-pointer">
                                         Customers
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li className="mb-2 leading-6">
-                                    <a
-                                        href="#"
+                                    <Link
+                                        to="#"
                                         className="transition-colors duration-300 hover:text-blue-500 focus:text-blue-600 cursor-pointer">
                                         Why us?
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li className="mb-2 leading-6">
-                                    <a
-                                        href="#"
+                                    <Link
+                                        to="#"
                                         className="transition-colors duration-300 hover:text-blue-500 focus:text-blue-600 cursor-pointer">
                                         Pricing
-                                    </a>
+                                    </Link>
                                 </li>
                             </ul>
                         </nav>
@@ -77,39 +78,39 @@ const Footer = () => {
                             </h3>
                             <ul>
                                 <li className="mb-2 leading-6">
-                                    <a
-                                        href="#"
+                                    <Link
+                                        to="#"
                                         className="transition-colors duration-300 hover:text-blue-500 focus:text-blue-600 cursor-pointer">
                                         Documentation
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li className="mb-2 leading-6">
-                                    <a
-                                        href="#"
+                                    <Link
+                                        to="#"
                                         className="transition-colors duration-300 hover:text-blue-500 focus:text-blue-600 cursor-pointer">
                                         Customer Care
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li className="mb-2 leading-6">
-                                    <a
-                                        href="#"
+                                    <Link
+                                        to="#"
                                         className="transition-colors duration-300 hover:text-blue-500 focus:text-blue-600 cursor-pointer">
                                         What&apos;s New
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li className="mb-2 leading-6">
-                                    <a
-                                        href="#"
+                                    <Link
+                                        to="#"
                                         className="transition-colors duration-300 hover:text-blue-500 focus:text-blue-600 cursor-pointer">
                                         FAQ&apos;s
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li className="mb-2 leading-6">
-                                    <a
-                                        href="#"
+                                    <Link
+                                        to="#"
                                         className="transition-colors duration-300 hover:text-blue-500 focus:text-blue-600 cursor-pointer">
                                         Help Center
-                                    </a>
+                                    </Link>
                                 </li>
                             </ul>
                         </nav>
@@ -123,39 +124,39 @@ const Footer = () => {
                             </h3>
                             <ul>
                                 <li className="mb-2 leading-6">
-                                    <a
-                                        href="#"
+                                    <Link
+                                        to="#"
                                         className="transition-colors duration-300 hover:text-blue-500 focus:text-blue-600 cursor-pointer">
                                         About us
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li className="mb-2 leading-6">
-                                    <a
-                                        href="#"
+                                    <Link
+                                        to="#"
                                         className="transition-colors duration-300 hover:text-blue-500 focus:text-blue-600 cursor-pointer">
                                         Careers
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li className="mb-2 leading-6">
-                                    <a
-                                        href="#"
+                                    <Link
+                                        to="#"
                                         className="transition-colors duration-300 hover:text-blue-500 focus:text-blue-600 cursor-pointer">
                                         Report a Bug
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li className="mb-2 leading-6">
-                                    <a
-                                        href="#"
+                                    <Link
+                                        to="#"
                                         className="transition-colors duration-300 hover:text-blue-500 focus:text-blue-600 cursor-pointer">
                                         Women&apos;s Day Special
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li className="mb-2 leading-6">
-                                    <a
-                                        href="#"
+                                    <Link
+                                        to="#"
                                         className="transition-colors duration-300 hover:text-blue-500 focus:text-blue-600 cursor-pointer">
                                         Feedback
-                                    </a>
+                                    </Link>
                                 </li>
                             </ul>
                         </nav>
@@ -169,32 +170,32 @@ const Footer = () => {
                             </h3>
                             <ul>
                                 <li className="mb-2 leading-6">
-                                    <a
-                                        href="#"
+                                    <Link
+                                        to="#"
                                         className="transition-colors duration-300 hover:text-blue-500 focus:text-blue-600 cursor-pointer">
                                         Contact
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li className="mb-2 leading-6">
-                                    <a
-                                        href="#"
+                                    <Link
+                                        to="#"
                                         className="transition-colors duration-300 hover:text-blue-500 focus:text-blue-600 cursor-pointer">
                                         Support
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li className="mb-2 leading-6">
-                                    <a
-                                        href="#"
+                                    <Link
+                                        to="#"
                                         className="transition-colors duration-300 hover:text-blue-500 focus:text-blue-600 cursor-pointer">
                                         Partners
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li className="mb-2 leading-6">
-                                    <a
-                                        href="#"
+                                    <Link
+                                        to="#"
                                         className="transition-colors duration-300 hover:text-blue-500 focus:text-blue-600 cursor-pointer">
                                         Join research
-                                    </a>
+                                    </Link>
                                 </li>
                             </ul>
                         </nav>
