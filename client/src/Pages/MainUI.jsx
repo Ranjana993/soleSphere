@@ -23,9 +23,9 @@ const MainUI = () => {
   return (
     <>
 
-      <form className=" mx-auto flex justify-center mt-4">
+      <form className=" mx-auto flex items-center justify-center mt-4">
         <label htmlFor="countries" className="mb-2 text-sm  hidden lg:block  font-medium text-gray-900 dark:text-red-600">Select an option</label>
-        <select id="countries" className="bg-gray-100 border border-gray-300 text-gray-900 text-sm lg:rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[90%] p-1 dark:focus:ring-blue-500 dark:focus:border-blue-500">
+        <select id="countries" className="bg-gray-100 border border-gray-300 text-gray-900 text-sm px-4 focus:ring-blue-500 rounded-sm focus:border-blue-500 block w-[90%] lg:w-52 py-2 ml-3 dark:focus:ring-blue-500 dark:focus:border-blue-500">
           <option selected >Choose an option</option>
           <option className="py-4" value="US">MENS</option>
           <option className="py-4" value="CA">WOMENS</option>
