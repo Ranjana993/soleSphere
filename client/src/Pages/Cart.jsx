@@ -1,4 +1,4 @@
-
+import {Link} from "react-router-dom"
 const Cart = () => {
   return (
     <>
@@ -9,7 +9,7 @@ const Cart = () => {
         </div>
         <div className="absolute top-4 lg:top-10 right-4 lg:right-10">
           <h3 className="lg:text-6xl">Your cart is empty </h3>
-          <button className="bg-slate-800 item-center text-white p-1 lg:p-2 px-3 lg:px-4 mt-2">Back to buy </button>
+          <Link to="/" className="bg-slate-800 item-center text-white p-1 mt-4 lg:p-2 px-3 lg:px-4 ">Back to buy </Link>
         </div>
       </div>
       <div className="py-4 flex items-center justify-center px-4 ">
