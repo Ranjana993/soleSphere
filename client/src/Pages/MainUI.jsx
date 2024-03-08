@@ -10,7 +10,7 @@ const MainUI = () => {
   const [data, setData] = useState([])
   const dispatch = useDispatch();
   const getAllData = async () => {
-    const res = await axios.get("http://localhost:8000/get-products");
+    const res = await axios.get("https://solesphere.onrender.com/get-products");
 
     console.log(res?.data?.products);
     dispatch(addData(res?.data?.products))
