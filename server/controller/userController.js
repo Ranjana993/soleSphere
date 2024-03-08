@@ -5,7 +5,6 @@ const signupUser = async (req, res) => {
         console.log(req.body);
         const { username, email, password } = req.body;
 
-        // Check if any of the required fields is missing
         if (!username || !email || !password) {
             return res.status(403).json({ msg: "Please provide all credentials..." });
         }
