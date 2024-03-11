@@ -110,13 +110,13 @@ const Header = () => {
                         {isMenuOpen ? (
                             <X
                                 onClick={toggleMenu}
-                                className="h-6 w-6 cursor-pointer text-black lg:text-white mr-1"
+                                className="h-6 w-6 cursor-pointer text-white mr-1"
                             />
 
                         ) : (
                             <Menu
                                 onClick={toggleMenu}
-                                className="h-6 w-6 cursor-pointer text-black lg:text-white mr-1"
+                                className="h-6 w-6 cursor-pointer text-white  mr-1"
                             />
                         )}
                     </div>
