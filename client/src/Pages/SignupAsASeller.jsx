@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import axios from "axios"
-import imgLogo from "../assets/become-seller.avif"
+// import imgLogo from "../assets/become-seller.avif"
 
 
 const SignupAsASeller = () => {
@@ -28,7 +28,7 @@ const SignupAsASeller = () => {
         <>
             <div className="bg-fixed relative top-0 ">
                 <div className="absolute" >
-                    <img src={imgLogo} className="h-screen w-screen opacity-80" alt="imgLogo" />
+                    {/* <img src={imgLogo} className="h-screen w-screen opacity-80" alt="imgLogo" /> */}
                 </div>
                 <section className="bg-gray-50 ">
                     <div className="flex flex-col items-center justify-center px-6 py-4 mx-auto md:h-screen form-container lg:py-0">

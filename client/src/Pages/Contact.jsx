@@ -7,7 +7,7 @@ const Contact = () => {
         <section className="mb-32">
           <div className="relative h-[300px] overflow-hidden bg-cover bg-[50%] bg-no-repeat bg-[url('https://images.unsplash.com/photo-1532561685579-890e8f61456a?q=80&w=1925&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')]" />
           <div className="container px-6 md:px-12">
-            <div className="block rounded-lg bg-[hsla(0,0%,100%,0.8)] px-6 py-12  dark:bg-gray-600 md:py-16 md:px-12 -mt-[100px] backdrop-blur-[30px]">
+            <div className="block rounded-lg  px-6 py-12 bg-gray-600 dark:bg-gray-600 md:py-16 md:px-12 -mt-[100px] backdrop-blur-[30px]">
               <div className="flex flex-wrap">
                 <div className="mb-12 w-full shrink-0 grow-0 basis-auto md:px-3 lg:mb-0 lg:w-5/12 lg:px-6">
                   <form>
