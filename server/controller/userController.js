@@ -1,4 +1,5 @@
 const User = require("../models/userModel");
+const bcrypt = require("bcrypt")
 
 const signupUser = async (req, res) => {
     try {
@@ -15,25 +16,36 @@ const signupUser = async (req, res) => {
         if (isExist) {
             return res.status(402).json({ msg: "User already exists. Please go to sign in." });
         }
+        const hashedPassword = await bcrypt.hash(password, 10);
 
         // Create a new user instance with the User model
-        const newUser = new User({ username, email, password });
-
+        const newUser = await new User({ username, email, password: hashedPassword }).save();
+        console.log(newUser);
         // Save the new user to the database
-        await newUser.save();
+        // await newUser.save();
 
         return res.status(200).json({ msg: "User successfully created...", newUser });
     } catch (error) {
-        console.error(error); // Log the error for debugging purposes
-        return res.status(500).json({ msg: "Something went wrong on the backend side while signing up the user." });
+        console.error(error);
+        return res.status(500).json({ msg: "Something went wrong on the backend side while registering up the user." });
     }
 };
 
-const signinUser = () => {
+const signinUser = async() => {
     try {
+        const { email, password } = req.body;
+        if(!(email , password)){
+            return res.status(403).json({ msg: "User not found please register"})
+        }
+        const existingUser = await User.findOne({email})
+        const encryptedPassword = await bcrypt.compare(password, existingUser._id )
+        if (!encryptedPassword){
+            return res.status(403).json({ msg: "Invalid credentials"})
+        }
 
     } catch (error) {
-
+        console.error(error); 
+        return res.status(500).json({ msg: "Something went wrong on the backend side while signing up the user." });
     }
 }
 module.exports = { signupUser, signinUser }

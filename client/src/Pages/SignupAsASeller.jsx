@@ -21,7 +21,7 @@ const SignupAsASeller = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         const data = await axios.post("http://localhost:8000/signup", userData)
-        console.log(data)
+        console.log(data?.data)
         navigate("/login")
     }
     return (
