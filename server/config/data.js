@@ -12,7 +12,7 @@ const products = [
             cost: 899,
             discount: '47%'
         },
-        type:"menwear",
+        ProductType:"menwear",
         quantity: 1,
         description: 'Introducing MIKE (N) Running Shoes for Men in sleek black – the epitome of style and performance seamlessly combined. Crafted with precision and designed for the modern man, these running shoes are not just an accessory but a statement of active lifestyle.',
         discount: 'Extra 10% Off',
@@ -31,7 +31,7 @@ const products = [
             cost: 289,
             discount: '73%'
         },
-        type: "menwear",
+        ProductType: "menwear",
         quantity: 1,
         description: 'Crafted with precision and attention to detail, these sneakers feature a slip-on design, ensuring a quick and hassle-free wearing experience. The MXO Premium Sneakers boast a modern silhouette that effortlessly complements various outfits, making them a versatile choice for casual outings or active pursuits.',
         discount: 'From 99+5% Off',
@@ -45,7 +45,7 @@ const products = [
             shortTitle: 'BRUTON ',
             longTitle: 'Trendy Running Shoes Running Shoes For Men  (Blue)'
         },
-        type: "menwear",
+        ProductType: "menwear",
         price: {
             mrp: 129972,
             cost: 352,
@@ -64,7 +64,7 @@ const products = [
             shortTitle: 'asian ',
             longTitle: 'Thar-01 Grey Sneakers,Sports,Training,Gym,Walking,Stylish Running Shoes For Men  (Grey, Black)',
         },
-        type: "menwear",
+        ProductType: "menwear",
         price: {
             mrp: 1249,
             cost: 739,
@@ -83,7 +83,7 @@ const products = [
             shortTitle: 'RebelBe ',
             longTitle: 'Outdoor Casual Boots for Mens Boots For Men  (Beige)'
         },
-        type: "menwear",
+        ProductType: "menwear",
         price: {
             mrp: 999,
             cost: 599,
@@ -102,7 +102,7 @@ const products = [
             shortTitle: 'Shozie ',
             longTitle: 'Stylish Walking Partywear Sneakers Casual Shoes Sneakers For Women  (White, Blue)'
         },
-        type: "menwear",
+        ProductType: "menwear",
         price: {
             mrp: 999,
             cost: 469,
@@ -121,7 +121,7 @@ const products = [
             shortTitle: 'sharansh gallery ',
             longTitle: 'Women Multicolor Heels Sandal'
         },
-        type: "womenwear",
+        ProductType: "womenwear",
         price: {
             mrp: 1799,
             cost: 649,
@@ -140,7 +140,7 @@ const products = [
             shortTitle: 'Fashion Tails  ',
             longTitle: 'Women Black Heels Sandal',
         },
-        type: "womenwear",
+        ProductType: "womenwear",
         price: {
             mrp: 799,
             cost: 299,
@@ -159,7 +159,7 @@ const products = [
             shortTitle: 'SHOETOPIA ',
             longTitle: 'Women Black Heels Sandal'
         },
-        type: "womenwear",
+        ProductType: "womenwear",
         price: {
             mrp: 1999,
             cost: 559,
@@ -178,7 +178,7 @@ const products = [
             shortTitle: 'METRO  ',
             longTitle: 'Women Gold Flats Sandal'
         },
-        type: "womenwear",
+        ProductType: "womenwear",
         price: {
             mrp: 1490,
             cost: 819,
@@ -197,7 +197,7 @@ const products = [
             shortTitle: 'Saba Collection',
             longTitle: 'Women Red Wedges Sandal'
         },
-        type: "womenwear",
+        ProductType: "womenwear",
         price: {
             mrp: 1299,
             cost: 209,
@@ -216,7 +216,7 @@ const products = [
             shortTitle: 'Colo ',
             longTitle: 'Women Navy Wedges Sandal'
         },
-        type: "womenwear",
+        ProductType: "womenwear",
         price: {
             mrp: 999,
             cost: 386,
@@ -235,7 +235,7 @@ const products = [
             shortTitle: 'LILY ',
             longTitle: 'Women Black Heels Sandal '
         },
-        type: "womenwear",
+        ProductType: "womenwear",
         price: {
             mrp: 999,
             cost: 516,
@@ -254,7 +254,7 @@ const products = [
             shortTitle: 'SHOMEE',
             longTitle: 'Women Trending Flat Sandals l Stylish Slipper For Women s, Girls Outdoor & Party Wear Brown Flats Sandal'
         },
-        type: "womenwear",
+        ProductType: "womenwear",
         price: {
             mrp: 999,
             cost: 243,
@@ -273,7 +273,7 @@ const products = [
             shortTitle: 'Colo',
             longTitle: 'Women Olive Wedges Sandal ',
         },
-        type: "womenwear",
+        ProductType: "womenwear",
         price: {
             mrp: 999,
             cost: 386,
@@ -292,7 +292,7 @@ const products = [
             shortTitle: 'SHOETOPIA ',
             longTitle: 'Women Black Heels Sandal'
         },
-        type: "womenwear",
+        ProductType: "womenwear",
         price: {
             mrp: 1999,
             cost: 449,
@@ -311,7 +311,7 @@ const products = [
             shortTitle: 'BUNNIES  ',
             longTitle: 'Velcro Sports Sandals For Boys & Girls(Beige) '
         },
-        type: "childwear",
+        ProductType: "childwear",
         price: {
             mrp: 499,
             cost: 299,
@@ -330,7 +330,7 @@ const products = [
             shortTitle: 'SHINZU ',
             longTitle: 'Velcro Flats For Girls(White) '
         },
-        type: "childwear",
+        ProductType: "childwear",
         price: {
             mrp: 999,
             cost: 348,

@@ -14,11 +14,15 @@ const Footer = lazy(() => import("./components/Footer.jsx"));
 const Description = lazy(() => import("./Pages/Detail.jsx"));
 const Cart = lazy(() => import("./Pages/Cart.jsx"));
 const NewBlog = lazy(() => import("./Pages/NewBlog.jsx"));
+import giffi from "./assets/giffi.gif"
+
 
 const App = () => {
   const location = useLocation();
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<div className="w-full flex items-center justify-center h-screen">
+      <img  src={giffi} alt="" />
+    </div>}>
       {location.pathname === '/dashboard' ? (
         <Dashboard_Header />
       ) : (
