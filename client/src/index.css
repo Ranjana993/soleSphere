@@ -29,6 +29,19 @@
   -o-border-radius: 12px; */
 }
 
+.image-hover {
+  transition: filter 0.5s ease;
+  -webkit-transition: filter 0.5s ease;
+  -moz-transition: filter 0.5s ease;
+  -ms-transition: filter 0.5s ease;
+  -o-transition: filter 0.5s ease;
+}
+
+.image-hover:hover {
+  filter: blur(4px);
+  /* Blurs the image when hovered */
+}
+
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: rgb(4, 31, 56);
@@ -37,6 +50,7 @@
 .bg-image {
   background: url('https: //images.unsplash.com/photo-1465877783223-4eba513e27c6?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') center/cover no-repeat fixed;
 }
+
 .form-container {
   position: relative;
   z-index: 1;

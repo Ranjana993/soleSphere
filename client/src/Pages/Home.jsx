@@ -9,7 +9,6 @@ const Home = () => {
     return (
         <>
             {/* <Banner /> */}
-            <h1 className="text-3xl text-center mx-4 my-2 tracking-widest">Best Seller...</h1>
             <ProductList />
             <Collection />
             <Video />

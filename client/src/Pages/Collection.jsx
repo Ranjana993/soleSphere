@@ -12,9 +12,9 @@ const Collection = () => {
                 </div>
             </div>
             <div className="flex gap-2 flex-wrap w-full lg:my-4 justify-center">
-                <img className="lg:w-[32%]  " src="https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-in-Library/default/dw8198d945/Three%20Image%20Block/10-Price%20Point-1.jpg?sw=447&q=100" alt="" />
-                <img className="lg:w-[32%]" src="https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-in-Library/default/dw3ac4fb42/Three%20Image%20Block/10-Price%20Point-2.jpg?sw=447&q=100" alt="" />
-                <img className="lg:w-[32%]" src="https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-in-Library/default/dwc904a313/Three%20Image%20Block/10-Price%20Point-3.jpg?sw=447&q=100" alt="" />
+                <img className="lg:w-[32%] image-hover " src="https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-in-Library/default/dw8198d945/Three%20Image%20Block/10-Price%20Point-1.jpg?sw=447&q=100" alt="" />
+                <img className="lg:w-[32%] image-hover" src="https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-in-Library/default/dw3ac4fb42/Three%20Image%20Block/10-Price%20Point-2.jpg?sw=447&q=100" alt="" />
+                <img className="lg:w-[32%] image-hover" src="https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-in-Library/default/dwc904a313/Three%20Image%20Block/10-Price%20Point-3.jpg?sw=447&q=100" alt="" />
             </div>
         </div>
     )
