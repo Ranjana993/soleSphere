@@ -37,15 +37,19 @@ const Header = () => {
                                         {
                                             open && (
                                                 <div className=" absolute top-45 bg-red divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
-                                                    <div className="px-4 py-3 text-sm text-gray-900 dark:text-white">
+                                                    {/* <div className="px-4 py-3 text-sm text-gray-900 dark:text-white">
                                                         <div>Ranjana Yadav</div>
-                                                    </div>
+                                                    </div> */}
                                                     <ul className="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownUserAvatarButton">
-                                                        <li>
+                                                        {/* <li>
                                                             <Link to="/dashboard" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</Link>
                                                         </li>
                                                         <li>
                                                             <Link to="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sign Out</Link>
+                                                        </li> */}
+
+                                                        <li>
+                                                            <Link to="/sign-in-user" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sign in</Link>
                                                         </li>
                                                     </ul>
                                                 </div>

@@ -10,7 +10,6 @@ const signupUser = async (req, res) => {
             return res.status(403).json({ msg: "Please provide all credentials..." });
         }
 
-        // Finding if the user already exists in the database
         const isExist = await User.findOne({ email });
 
         if (isExist) {

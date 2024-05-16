@@ -15,13 +15,15 @@ const Description = lazy(() => import("./Pages/Detail.jsx"));
 const Cart = lazy(() => import("./Pages/Cart.jsx"));
 const NewBlog = lazy(() => import("./Pages/NewBlog.jsx"));
 import giffi from "./assets/giffi.gif"
+import SigninUser from "./Pages/SigninUser.jsx";
+import SignupUser from "./Pages/SignupUser.jsx";
 
 
 const App = () => {
   const location = useLocation();
   return (
     <Suspense fallback={<div className="w-full flex items-center justify-center h-screen">
-      <img  src={giffi} alt="" />
+      <img src={giffi} alt="" />
     </div>}>
       {location.pathname === '/dashboard' ? (
         <Dashboard_Header />
@@ -39,6 +41,9 @@ const App = () => {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/new-blog" element={<NewBlog />} />
+        <Route path="/sign-up-user" element={<SignupUser />} />
+        <Route path="/sign-in-user" element={<SigninUser />}/>
+
       </Routes>
       <Footer />
     </Suspense>
