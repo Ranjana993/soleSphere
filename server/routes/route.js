@@ -11,5 +11,5 @@ const uploader = multer({
 
 
 router.get("/get-products", getProducts)
-router.post('/upload-product', uploader.single('image'), uploadproducts);
+// router.post('/upload-product', uploader.single('image'), uploadproducts);
 module.exports = router
