@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import axios from "axios"
+import toast from "react-hot-toast"
 // import imgLogo from "../assets/become-seller.avif"
 
 
@@ -22,8 +23,15 @@ const SignupUser = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    const data = await axios.post("http://localhost:8000/sign-in-user", userData)
-    console.log(data?.data)
+    try {
+      const data = await axios.post("http://localhost:8000/signup", userData)
+      console.log(data?.data)
+      navigate("/sign-in-user")
+      toast.success("User registered successfully")
+    } catch (error) {
+      toast.error("User registration failed", error)
+    }
+
   }
   return (
     <>
