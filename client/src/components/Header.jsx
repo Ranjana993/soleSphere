@@ -1,21 +1,35 @@
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Logo from "../assets/logo1.png"
 import { Gift, Menu, ShoppingCart, X } from "lucide-react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [open, setOpen] = useState(false)
+    const [token, setToken] = useState(null);
 
+    useEffect(() => {
+        // Check for token in localStorage when the component mounts
+        const storedToken = localStorage.getItem('token');
+        setToken(storedToken);
+    }, []);
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
     };
     const handleOpen = () => {
         setOpen(!open);
-        console.log("open ==>  ", open);
     };
+
+
+    const HandleSignOut = async (e) => {
+        e.preventDefault()
+        localStorage.removeItem('token'); setToken(null)
+        const res = await axios.post("http://localhost:8000/logout")
+        console.log("Signout==> ", res)
+    }
 
     return (
         <>
@@ -41,16 +55,20 @@ const Header = () => {
                                                         <div>Ranjana Yadav</div>
                                                     </div> */}
                                                     <ul className="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownUserAvatarButton">
-                                                        {/* <li>
-                                                            <Link to="/dashboard" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</Link>
-                                                        </li>
-                                                        <li>
-                                                            <Link to="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sign Out</Link>
-                                                        </li> */}
-
-                                                        <li>
-                                                            <Link to="/sign-in-user" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sign in</Link>
-                                                        </li>
+                                                        {token ? (
+                                                            <>
+                                                                <li>
+                                                                    <Link to="/dashboard" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</Link>
+                                                                </li>
+                                                                <li>
+                                                                    <Link to="#" onClick={HandleSignOut} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sign Out</Link>
+                                                                </li>
+                                                            </>
+                                                        ) : (
+                                                            <li>
+                                                                <Link to="/sign-in-user" className="block px-4 py-2  hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sign in</Link>
+                                                            </li>
+                                                        )}
                                                     </ul>
                                                 </div>
                                             )
