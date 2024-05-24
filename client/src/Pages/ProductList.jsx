@@ -1,9 +1,10 @@
+/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
 import { addData } from '../../redux/slice/dataSlice';
 import { Link } from 'react-router-dom';
-import loaderGif from "../assets/giffi.gif"
+
 
 const ProductList = () => {
     const [data, setData] = useState([]);

@@ -24,7 +24,7 @@ const SignupUser = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      const data = await axios.post("http://localhost:8000/signup", userData)
+      const data = await axios.post("https://solesphere.onrender.com/signup", userData)
       console.log(data?.data)
       navigate("/sign-in-user")
       toast.success("User registered successfully")
