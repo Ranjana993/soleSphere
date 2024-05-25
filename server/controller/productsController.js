@@ -1,6 +1,5 @@
-const uploadFile = require("../helper/upload");
 const productModel = require("../models/productModel")
-
+const path = require("path");
 
 const getProducts = async (req, res) => {
     try {
@@ -11,28 +10,36 @@ const getProducts = async (req, res) => {
     }
 }
 
+// Create a new product
 const uploadproducts = async (req, res) => {
     try {
-        const {  title, price, ProductType, quantity, description, discount, tagline } = req.body;
-        if (!req.file) {
-            return res.status(400).json({ error: 'chhose your image file' });
-        }
-        if(!description || !price || !title || !quantity){
+        console.log(req.body);
+        const { id, url, detailUrl, title, price, ProductType, quantity, description, discount, tagline } = req.body;
 
-        }
-        const uploadedImageURL = await uploadFile(req.file.path)
-        console.log("uploadedImageURL", uploadedImageURL);
+        // URL of the uploaded image
+        const imageUrl = req.file;
 
-
-
-
-        res.status(200).json({
-            url: secure_url
+        const newProduct = new productModel({
+            id,
+            url: imageUrl,
+            detailUrl: req.file,
+            title: JSON.parse(title),
+            price: JSON.parse(price),
+            ProductType,
+            quantity,
+            description,
+            discount,
+            tagline
         });
 
+        // await newProduct.save();
+        res.status(201).json(newProduct);
     } catch (error) {
-
+        console.error(error);
+        res.status(500).json({ error: 'Server error' });
     }
-}
+};
+
+
 
 module.exports = { getProducts, uploadproducts } 
