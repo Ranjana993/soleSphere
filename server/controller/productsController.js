@@ -1,5 +1,6 @@
+const uploadOnCloudinary = require("../config/cloudinary");
 const productModel = require("../models/productModel")
-const path = require("path");
+const fs = require('fs');
 
 const getProducts = async (req, res) => {
     try {
@@ -11,18 +12,34 @@ const getProducts = async (req, res) => {
 }
 
 // Create a new product
+
+
 const uploadproducts = async (req, res) => {
     try {
-        console.log(req.body);
-        const { id, url, detailUrl, title, price, ProductType, quantity, description, discount, tagline } = req.body;
+        // Destructure the incoming form data
+        const { id, title, price, ProductType, quantity, description, discount, tagline } = req.body;
 
-        // URL of the uploaded image
-        const imageUrl = req.file;
+        // Get the uploaded files
+        const urlFile = req.files['url'] ? req.files['url'][0] : null;
+        const detailUrlFile = req.files['detailUrl'] ? req.files['detailUrl'][0] : null;
 
+        if (!urlFile || !detailUrlFile) {
+            return res.status(400).json({ error: 'Both url and detailUrl files are required' });
+        }
+
+        // Upload files to Cloudinary
+        const urlImageUrl = await uploadOnCloudinary(urlFile.path);
+        const detailUrlImageUrl = await uploadOnCloudinary(detailUrlFile.path);
+
+        if (!urlImageUrl || !detailUrlImageUrl) {
+            return res.status(500).json({ error: 'Failed to upload images to Cloudinary' });
+        }
+
+        // Create new product with the URL from Cloudinary
         const newProduct = new productModel({
             id,
-            url: imageUrl,
-            detailUrl: req.file,
+            url: urlImageUrl,
+            detailUrl: detailUrlImageUrl,
             title: JSON.parse(title),
             price: JSON.parse(price),
             ProductType,
@@ -32,13 +49,26 @@ const uploadproducts = async (req, res) => {
             tagline
         });
 
-        // await newProduct.save();
-        res.status(201).json(newProduct);
-    } catch (error) {
+        console.log("newProduct ====> ", newProduct);
+        // Save the product to the database
+        await newProduct.save();
+
+
+        res.status(201).json({ message: "Product has been successfully uploaded ", newProduct });
+    }
+    catch (error) {
         console.error(error);
-        res.status(500).json({ error: 'Server error' });
+        res.status(500).json({ message: "Product could not be created" });
+    }
+    finally {
+        // Clean up the temporary file
+        if (req.file && req.file.path) {
+            fs.unlinkSync(req.file.path);
+        }
     }
 };
+
+
 
 
 
