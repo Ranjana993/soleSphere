@@ -5,12 +5,7 @@ const upload = require("../middleware/multer");
 const router = express.Router();
 
 
-
-
-
 router.get("/get-products", getProducts)
-router.post('/upload-product', upload.fields([
-  { name: 'url', maxCount: 1 },
-  { name: 'detailUrl', maxCount: 1 }
-]), uploadproducts);
+router.post('/upload-product', upload.fields([{ name: 'url', maxCount: 1 }, { name: 'detailUrl', maxCount: 1 }]), uploadproducts);
+
 module.exports = router

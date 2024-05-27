@@ -6,7 +6,6 @@ const router = express.Router();
 
 router.post("/signup", signupUser);
 router.post("/signin", signinUser);
-router.post("/logout", logout);
 
 
 
@@ -14,10 +13,6 @@ router.post("/logout", logout);
 
 //! SELLER REGISTRATION DETAILS .
 router.post("/register-as-a-seller", register)
-
-
-
-
 
 
 router.get('/dashboard', authenticateToken, (req, res) => {
