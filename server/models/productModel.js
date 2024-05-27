@@ -13,7 +13,13 @@ const ProductSchema = new mongoose.Schema({
     quantity: Number,
     description: String,
     discount: String,
-    tagline: String
+    tagline: String,
+    user: [
+        {
+            type: mongoose.Types.ObjectId,
+            ref: "seller"
+        }
+    ]
 })
 
 const productModel = mongoose.model("productModel", ProductSchema);

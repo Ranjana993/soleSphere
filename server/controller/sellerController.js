@@ -1,21 +1,21 @@
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const seller = require("../models/sellerModel")    
+const seller = require("../models/sellerModel")
 // Assuming you have a User model set up// Assuming you have a User model set up
 
 const register = async (req, res) => {
   try {
-    const { email, fullName, contactNumber, companyName, location, businessCategory, description, password } = req.body;
+    const { email, fullName, contactNumber, companyName, location, buisnessCategory, description, password } = req.body;
 
     // Validate input
-    if (!email || !fullName || !contactNumber || !companyName || !location || !businessCategory || !description || !password) {
+    if (!email || !fullName || !contactNumber || !companyName || !location || !buisnessCategory || !description || !password) {
       return res.status(400).json({
         message: "Please fill all the required fields"
       });
     }
 
     // Check if user already exists
-    const existingUser = await User.findOne({ email });
+    const existingUser = await seller.findOne({ email });
     if (existingUser) {
       return res.status(400).json({
         message: "User with this email already exists"
@@ -27,17 +27,18 @@ const register = async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, salt);
 
     // Create new user
-    const newUser = new User({
+    const newUser = new seller({
       email,
       fullName,
       contactNumber,
       companyName,
       location,
-      businessCategory,
+      buisnessCategory,
       description,
       password: hashedPassword
     });
 
+    console.log("newUser...", newUser);
     // Save user to the database
     await newUser.save();
 
@@ -83,7 +84,7 @@ const signin = async (req, res) => {
     }
 
     // Check if user exists
-    const user = await User.findOne({ email });
+    const user = await seller.findOne({ email });
     if (!user) {
       return res.status(400).json({
         message: "Invalid email or password"
@@ -120,7 +121,7 @@ const signin = async (req, res) => {
             contactNumber: user.contactNumber,
             companyName: user.companyName,
             location: user.location,
-            businessCategory: user.businessCategory,
+            buisnessCategory: user.buisnessCategory,
             description: user.description
           }
         });
