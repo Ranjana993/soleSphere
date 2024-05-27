@@ -4,7 +4,6 @@ const products = require("./config/data")
 
 const uploadData = async () => {
     try {
-        await productModel.deleteMany({});
         await productModel.insertMany(products);
         console.log("Product Saved successfully")
     } catch (error) {
