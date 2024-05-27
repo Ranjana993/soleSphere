@@ -51,7 +51,6 @@ const uploadproducts = async (req, res) => {
             tagline
         });
 
-        console.log("newProduct ====> ", newProduct);
         // Save the product to the database
         await newProduct.save();
 
