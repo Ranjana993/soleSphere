@@ -7,7 +7,7 @@ const getProducts = async (req, res) => {
     try {
         const products = await productModel.find({});
         return res.status(200).json({ products })
-    } 
+    }
     catch (error) {
         return res.status(500).json({ message: "something went wrong while fetching all products list from database " })
     }
@@ -20,6 +20,13 @@ const uploadproducts = async (req, res) => {
     try {
         // Destructure the incoming form data
         const { id, title, price, ProductType, quantity, description, discount, tagline } = req.body;
+
+        //check duplicate product
+        let isExist = await productModel.findOne({ id: id })
+        if (isExist) {
+            return res.status(400).json({ error: 'This product is already exists' });
+        }
+
 
         // Get the uploaded files
         const urlFile = req.files['url'] ? req.files['url'][0] : null;
@@ -59,7 +66,7 @@ const uploadproducts = async (req, res) => {
     }
     catch (error) {
         console.error(error);
-        res.status(500).json({ message: "Product could not be created" });
+        res.status(500).json({ message: "Something went wrong" });
     }
     finally {
         // Clean up the temporary file
