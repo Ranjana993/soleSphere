@@ -1,3 +1,4 @@
+const seller = require("../models/sellerModel");
 const uploadOnCloudinary = require("../config/cloudinary");
 const productModel = require("../models/productModel")
 const fs = require('fs');
@@ -6,7 +7,8 @@ const getProducts = async (req, res) => {
     try {
         const products = await productModel.find({});
         return res.status(200).json({ products })
-    } catch (error) {
+    } 
+    catch (error) {
         return res.status(500).json({ message: "something went wrong while fetching all products list from database " })
     }
 }
@@ -69,7 +71,21 @@ const uploadproducts = async (req, res) => {
 };
 
 
+// getting product according to user registered as a seller ...
+const userProductController = async (req, res) => {
+    try {
+        const userProduct = await seller.findById(req.params.id).populate("productModel");
+        if (!userProduct) {
+            return res.status(401).send({ success: false, message: "Not found" })
+        }
+
+        return res.status(200).send({ success: true, message: "Products found", userProduct })
+    } catch (error) {
+        console.log(error);
+        return res.status(400).send({ success: false, message: "Errror in userProductController", error })
+    }
+}
 
 
 
-module.exports = { getProducts, uploadproducts } 
+module.exports = { getProducts, uploadproducts, userProductController } 
