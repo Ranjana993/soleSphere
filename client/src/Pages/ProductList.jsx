@@ -15,7 +15,7 @@ const ProductList = () => {
 
     const getAllData = async () => {
         try {
-            const res = await axios.get("https://solesphere.onrender.com/get-products");
+            const res = await axios.get("https://solesphere-backend12.onrender.com/get-products");
             dispatch(addData(res?.data?.products));
             setData(res?.data?.products);
             setFilteredData(res?.data?.products);
