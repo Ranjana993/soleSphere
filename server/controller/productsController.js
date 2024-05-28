@@ -26,8 +26,6 @@ const uploadproducts = async (req, res) => {
         if (isExist) {
             return res.status(400).json({ error: 'This product is already exists' });
         }
-
-
         // Get the uploaded files
         const urlFile = req.files['url'] ? req.files['url'][0] : null;
         const detailUrlFile = req.files['detailUrl'] ? req.files['detailUrl'][0] : null;
@@ -57,11 +55,7 @@ const uploadproducts = async (req, res) => {
             discount,
             tagline
         });
-
-        // Save the product to the database
         await newProduct.save();
-
-
         res.status(201).json({ message: "Product has been successfully uploaded ", newProduct });
     }
     catch (error) {
@@ -69,7 +63,6 @@ const uploadproducts = async (req, res) => {
         res.status(500).json({ message: "Something went wrong" });
     }
     finally {
-        // Clean up the temporary file
         if (req.file && req.file.path) {
             fs.unlinkSync(req.file.path);
         }
