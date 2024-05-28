@@ -1,7 +1,6 @@
 const express = require("express");
 require("dotenv").config();
 const cors = require("cors");
-const uploadData = require("./uploadingDataToDB");
 const connectDB = require("./Database/dbConnect");
 const productRoute = require("./routes/route");
 const router = require("./routes/userRoute");
@@ -24,4 +23,4 @@ app.get("/", (req, res) => {
 app.listen(PORT, () => console.log(`server is running on http://localhost:${PORT}`))
 
 connectDB();
-uploadData()
+// uploadData()
