@@ -17,6 +17,7 @@ const NewBlog = lazy(() => import("./Pages/NewBlog.jsx"));
 import giffi from "./assets/giffi.gif"
 import SigninUser from "./Pages/SigninUser.jsx";
 import SignupUser from "./Pages/SignupUser.jsx";
+import Aboutus from "./Pages/Aboutus.jsx";
 
 
 const App = () => {
@@ -34,6 +35,7 @@ const App = () => {
         <Route exact path="/" element={<Home />} />
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/contact" element={<Contact />} />
+        <Route exact path="/about-us" element={<Aboutus />}/>
         <Route exact path="/best-collection" element={<CollectionPage />} />
         <Route exact path="/seller" element={<Seller />} />
         <Route exact path="/login" element={<Signin />} />

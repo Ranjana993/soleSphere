@@ -5,6 +5,7 @@ import { Provider } from 'react-redux'
 import { store } from '../redux/store.jsx'
 import { BrowserRouter } from "react-router-dom"
 import { Toaster } from 'react-hot-toast';
+// import './styles/fonts.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter>

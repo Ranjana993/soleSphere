@@ -56,8 +56,8 @@ const CollectionPage = () => {
 
       </Carousel>
 
-
-      <div className="flex flex-row items-center flex-wrap justify-center py-4 mb-6 gap-4">
+      <h1 className="noto-serif-bold text-5xl py-8 text-center font-extrabold ">Explore Our Services </h1>
+      <div className="flex flex-row items-center bg-[radial-gradient(circle,_rgba(2,0,29,0.986)_0%,_rgba(0,0,0,1)_100%)] flex-wrap justify-center  py-16 mb-6 gap-4">
         {
           category?.map(item => (
             <img key={item.id} src={item.url} alt="" className="w-16 lg:w-32 rounded-full border  hover:border-4 border-orange-500" />
@@ -69,7 +69,7 @@ const CollectionPage = () => {
           <img className="w-full border border-blue-400" src="https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-in-Library/default/dwdcc652e0/Two%20Image%20Block/02-2%20component_Men%20&%20Women-2.jpg?sw=698&q=100" alt="" />
         </div>
 
-        <div className="w-[90%] lg:w-1/2 border-4 border-blue-800">
+        <div className="w-[90%] lg:w-1/2 border-2 border-blue-400/50">
           <img className="w-full border border-red-400" src="https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-in-Library/default/dwdc288ace/Two%20Image%20Block/07-Fashion%20Heel%20&%20Mens%20Casual-1.jpg?sw=698&q=100" alt="" />
         </div>
       </div>

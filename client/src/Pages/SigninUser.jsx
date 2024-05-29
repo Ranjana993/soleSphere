@@ -20,21 +20,17 @@ const SigninUser = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     const { email, password } = userData;
-
     try {
       const response = await axios.post('https://solesphere.onrender.com/signin', { email , password });
-
       const data = response.data;
-
       if (data.token) {
-        localStorage.setItem('token', data.token); // Store the token
+        localStorage.setItem('token', data.token);
         console.log('Sign-in successful');
         toast.success('Successfully logged in user');
         navigate('/');
       } else {
-        console.log(data.msg); // Handle sign-in failure
+        console.log(data.msg);
         toast.error('Sign-in failed: ' + data.msg);
       }
     } catch (error) {
