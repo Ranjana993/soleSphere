@@ -18,6 +18,7 @@ import giffi from "./assets/giffi.gif"
 import SigninUser from "./Pages/SigninUser.jsx";
 import SignupUser from "./Pages/SignupUser.jsx";
 import Aboutus from "./Pages/Aboutus.jsx";
+import OfferTitle from "./Pages/OfferTitle.jsx";
 
 
 const App = () => {
@@ -27,15 +28,23 @@ const App = () => {
       <img src={giffi} alt="" />
     </div>}>
       {location.pathname === '/dashboard' ? (
-        <Dashboard_Header />
+        <>
+          <OfferTitle />
+          <Dashboard_Header />
+        </>
+
       ) : (
-        <Header />
+        <>
+          <OfferTitle />
+          <Header />
+        </>
+
       )}
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/contact" element={<Contact />} />
-        <Route exact path="/about-us" element={<Aboutus />}/>
+        <Route exact path="/about-us" element={<Aboutus />} />
         <Route exact path="/best-collection" element={<CollectionPage />} />
         <Route exact path="/seller" element={<Seller />} />
         <Route exact path="/login" element={<Signin />} />
@@ -44,7 +53,7 @@ const App = () => {
         <Route path="/cart" element={<Cart />} />
         <Route path="/new-blog" element={<NewBlog />} />
         <Route path="/sign-up-user" element={<SignupUser />} />
-        <Route path="/sign-in-user" element={<SigninUser />}/>
+        <Route path="/sign-in-user" element={<SigninUser />} />
 
       </Routes>
       <Footer />

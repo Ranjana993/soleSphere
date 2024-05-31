@@ -27,18 +27,17 @@ const Banner = () => {
         <Carousel
             swipeable={false}
             draggable={false}
-            // showDots={true}
+            showDots={true}
             responsive={responsive}
-            // ssr={true} // means to render carousel on server-side.
+            ssr={true} 
             infinite={true}
             autoPlay={true}
-            autoPlaySpeed={1000}
+            autoPlaySpeed={1500}
             keyBoardControl={false}
             customTransition="all .5"
             transitionDuration={500}
             containerClass="carousel-container"
             removeArrowOnDeviceType={["tablet", "mobile"]}
-            // deviceType={this.props.deviceType}
             dotListClass="custom-dot-list-style"
             itemClass="carousel-item-padding-40-px"
         >
@@ -48,10 +47,6 @@ const Banner = () => {
 
                 ))
             }
-            {/* <div>Item 1</div>
-            <div>Item 2</div> */}
-            {/* <div>Item 3</div>
-            <div>Item 4</div> */}
         </Carousel>
     )
 }

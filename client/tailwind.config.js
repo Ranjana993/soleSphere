@@ -9,7 +9,8 @@ export default {
       fontFamily: {
         'noto-serif': ['"Noto Serif"', 'serif'],
         'playfair-display': ['"Playfair Display"', 'serif'],
-        'sevillana': ['Sevillana', 'cursive'],
+        'sevillana': ['Sevillana'],
+        'julee': ['Julee'],
       },
     },
   },
