@@ -27,7 +27,7 @@ const Banner = () => {
         <Carousel
             swipeable={false}
             draggable={false}
-            showDots={true}
+            // showDots={true}
             responsive={responsive}
             ssr={true} 
             infinite={true}
