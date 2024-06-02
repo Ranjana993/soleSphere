@@ -78,7 +78,7 @@ const ProductList = () => {
                     <Link to="#" className='bg-black text-white text-sm md:text-xl lg:text-[18px] cursor-pointer px-4 py-1 rounded-lg hover:bg-gray-900' onClick={() => handleCategoryFilter("womenwear")}>Women Wear</Link>
                     <Link to="#" className='bg-black text-white text-sm md:text-xl lg:text-[18px] cursor-pointer px-4 py-1 rounded-lg hover:bg-gray-900' onClick={() => handleCategoryFilter("childwear")}>Kids Wear</Link>
                 </div>
-                <div className="flex  md:order-2">
+                <div className="flex md:order-2">
                     <div className="relative">
                         <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
                             <svg className="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
@@ -118,10 +118,10 @@ const ProductList = () => {
                             <span className="text-4xl font-bold text-gray-500">No Data Found</span>
                         </div>
                     ) : (
-                        <div className='flex gap-2 lg:gap-5 m-auto flex-wrap items-center justify-center'>
+                        <div className='flex gap-2 lg:gap-5 m-auto w-full flex-wrap items-center justify-center'>
                             {
                                 paginatedData().map(item => (
-                                    <div key={item._id} className=' w-full sm:w-[23%] md:w-[36%] lg:w-1/6'>
+                                    <div key={item._id} className='w-[47%] sm:w-[23%] md:w-[36%] lg:w-1/6'>
                                         <div key={item.id} className="relative m-2 lg:m-5 border border-gray-300 flex flex-col w-full h-full max-w-xs overflow-hidden rounded-sm  shadow-xl hover:shadow-gray-500 bg-white">
                                             <Link>
                                                 <Link className="relative mx-3 mt-3 flex h-42 lg:h-52 overflow-hidden rounded-sm" to="#">
