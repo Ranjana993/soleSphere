@@ -35,7 +35,7 @@ const Header = () => {
             <nav className="bg-white relative sticky top-0 left-0 border-b border-gray-200 z-[999]">
                 <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
                     <Link to={"/"} className="flex items-center space-x-3 rtl:space-x-reverse">
-                        <h3 className=" playfair-display-extrabold noto-serif-bold  text-2xl font-bold text-[#0d485d]">FootFly</h3>
+                        <h3 className=" playfair-display-extrabold noto-serif-bold  text-3xl font-bold text-[#0d485d]">FootFly</h3>
                     </Link>
 
                     <div className="md:order-2">
@@ -72,11 +72,11 @@ const Header = () => {
                             </div>
                             <div>
                                 <Link to="/cart">
-                                    <ShoppingCart className=" hidden lg:block  hover:rounded-full  text-orange-700" />
+                                    <ShoppingCart className=" hidden lg:block  hover:rounded-full  text-gray-700" />
                                 </Link>
                             </div>
                             <div>
-                                <Gift className="  hidden lg:block hover:rounded-full text-orange-700" />
+                                <Gift className="  hidden lg:block hover:rounded-full text-gray-700" />
                             </div>
                         </div>
                     </div>
@@ -92,19 +92,16 @@ const Header = () => {
                         </div>
                         <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border text-black rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0  ">
                             <li>
-                                <Link to={"/"} className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent tracking-widest  md:p-0 "> Home </Link>
+                                <Link to={"/"} className="block py-2 px-3 text-[#D9534F] hover:text-[#D9534F] rounded hover:bg-gray-100 md:hover:bg-transparent tracking-widest  md:p-0 text-xl "> Home </Link>
                             </li>
                             <li>
-                                <Link to={"/best-collection"} className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent tracking-widest  md:p-0 ">Collection</Link>
+                                <Link to={"/seller"} className="block py-2 px-3 text-gray-900 hover:text-[#D9534F] rounded hover:bg-gray-800 md:hover:bg-transparent tracking-widest  md:p-0 text-xl  "> Become a seller  </Link>
                             </li>
                             <li>
-                                <Link to={"/contact"} className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent tracking-widest  md:p-0 "> Contact Us </Link>
+                                <Link to={"/contact"} className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent tracking-widest hover:text-[#D9534F] md:p-0 text-xl "> Contact Us </Link>
                             </li>
                             <li>
-                                <Link to={"/about-us"} className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100  tracking-widest  md:p-0 "> About Us </Link>
-                            </li>
-                            <li>
-                                <Link to={"/seller"} className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent tracking-widest  md:p-0 "> Become a seller  </Link>
+                                <Link to={"/about-us"} className="block py-2 px-3 text-gray-900 rounded hover:text-[#D9534F] tracking-widest  md:p-0 text-xl "> About Us </Link>
                             </li>
                         </ul>
                     </div>
@@ -128,27 +125,27 @@ const Header = () => {
                             <div className=" top-5 absolute mt-6 inset-x-0 m-2  z-[99999] origin-top-right transform p-2 transition lg:hidden " id="navbar-search">
                                 <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border bg-[#070F2B]/90 border-gray-100 rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0">
                                     <li>
-                                        <Link to="/" onClick={toggleMenu} className="block py-2 px-3 text-white bg-[#070F2B] rounded md:bg-transparent md:p-0 md:dark:text-blue-500" aria-current="page">Home</Link>
+                                        <Link to="/" onClick={toggleMenu} className="block py-2 px-3 text-white bg-[#070F2B] rounded md:bg-transparent md:p-0 " aria-current="page">Home</Link>
+                                    </li>
+                                    {/* <li>
+                                        <Link onClick={toggleMenu} to={"/best-collection"} className="block py-2 px-3 text-white rounded md:bg-transparent md:p-0  bg-transparent  !hover:bg-[#070F2B] hover:text-red-400 ">Best Collection</Link>
+                                    </li> */}
+                                    <li>
+                                        <Link onClick={toggleMenu} to={"/contact"} className="block py-2 px-3 text-white rounded md:bg-transparent md:p-0 hover:bg-[#070F2B] "> Contact Us </Link>
                                     </li>
                                     <li>
-                                        <Link onClick={toggleMenu} to={"/best-collection"} className="block py-2 px-3 text-white rounded md:bg-transparent md:p-0  bg-transparent md:dark:text-blue-500 !hover:bg-[#070F2B] hover:text-red-400 ">Best Collection</Link>
-                                    </li>
-                                    <li>
-                                        <Link onClick={toggleMenu} to={"/contact"} className="block py-2 px-3 text-white rounded md:bg-transparent md:p-0 hover:bg-[#070F2B] md:dark:text-blue-500"> Contact Us </Link>
-                                    </li>
-                                    <li>
-                                        <Link onClick={toggleMenu} to={"/seller"} className="block py-2 px-3 text-white rounded md:bg-transparent md:p-0 hover:bg-[#070F2B] md:dark:text-blue-500">Become a Seller </Link>
+                                        <Link onClick={toggleMenu} to={"/seller"} className="block py-2 px-3 text-white rounded md:bg-transparent md:p-0 hover:bg-[#070F2B] ">Become a Seller </Link>
                                     </li>
                                     <li className="hover:rounded-full text-orange-700">
-                                        <Link to="/cart" onClick={toggleMenu} className="block py-2 px-3 text-white rounded md:bg-transparent hover:bg-[#070F2B] md:p-0 md:dark:text-blue-500">
+                                        <Link to="/cart" onClick={toggleMenu} className="block py-2 px-3 text-white rounded md:bg-transparent hover:bg-[#070F2B] md:p-0 ">
                                             CART
                                         </Link>
                                     </li>
                                     <li className=" text-white hover:rounded-full hover:text-orange-700">
-                                        <Link to="/dashboard" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-[#070F2B] dark:hover:text-white">Dashboard</Link>
+                                        <Link to="/dashboard" className="block px-4 py-2 hover:bg-[#070F2B] ">Dashboard</Link>
                                     </li>
                                     <li className=" text-white hover:rounded-full hover:text-orange-700">
-                                        <Link to="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-[#070F2B] dark:hover:text-white">Sign Out</Link>
+                                        <Link to="#" className="block px-4 py-2  hover:bg-[#070F2B]">Sign Out</Link>
                                     </li>
                                 </ul>
                             </div>
