@@ -6,196 +6,94 @@ const Footer = () => {
         // <!-- Component: Five Columns Footer with Logo -->
         <footer className="text-start text-slate-500">
             {/* <!-- Main footer --> */}
-            <div className="pt-16 pb-12 text-sm border-t border-slate-200 bg-slate-800 font-poppins ">
+            <div className="pt-16 pb-12 text-sm border-t text-white border-slate-200 bg-[#D9534F]">
                 <div className="sm:container px-3 mx-auto">
                     <div className="grid grid-cols-4 gap-6 md:grid-cols-8 lg:grid-cols-12">
                         <div
                             className="col-span-4 md:col-span-8 lg:col-span-4"
                             aria-labelledby="footer-header">
-                            <Link 
-                                id="WindUI-5-logo"
-                                aria-label="WindUI logo"
-                                aria-current="page"
-                                className="flex items-center gap-2 mb-3 text-base font-medium leading-6 whitespace-nowrap focus:outline-none text-white hover:text-blue-700 cursor-pointer"
-                                to="#">
-                                <img
-                                    src={logo}
-                                    className="h-12 sm:h-16 transform hover:hue-rotate-30 transition duration-200 ease-in-out rounded-full"
-                                    alt=""
-                                />
-                                soleSphere
+                            <Link className="flex items-center gap-2 mb-3  cursor-pointer" to="#">
+                                <img src={logo} className="h-12 sm:h-16 rounded-full"alt="" />
+                                <span className="text-3xl text-white font-playfair-display">FootFly </span> 
                             </Link>
-                            <p className="text-left">
-                                Order your comfort at reasonable price
-                            </p>
+                            <p className="text-left"> Order your comfort at reasonable price </p>
                         </div>
                         <nav
                             className="col-span-2 md:col-span-4 lg:col-span-2 bg-transparent"
                             aria-labelledby="footer-product-5-logo">
-                            <h3
-                                className="mb-6 text-base font-medium text-white"
-                                id="footer-product-5-logo">
-                                Product
-                            </h3>
+                            <h3 className="mb-6 font-medium text-white text-xl font-noto-serif"> Product  </h3>
                             <ul>
                                 <li className="mb-2 leading-6">
-                                    <Link
-                                        href="#"
-                                        className="transition-colors duration-300 hover:text-blue-500 focus:text-blue-600 cursor-pointer">
-                                        Features
-                                    </Link>
+                                    <Link href="#" className="cursor-pointer"> Features </Link>
                                 </li>
                                 <li className="mb-2 leading-6">
-                                    <Link
-                                        to="#"
-                                        className="transition-colors duration-300 hover:text-blue-500 focus:text-blue-600 cursor-pointer">
-                                        Customers
-                                    </Link>
+                                    <Link to="#" className="cursor-pointer"> Customers </Link>
                                 </li>
                                 <li className="mb-2 leading-6">
-                                    <Link
-                                        to="#"
-                                        className="transition-colors duration-300 hover:text-blue-500 focus:text-blue-600 cursor-pointer">
-                                        Why us?
-                                    </Link>
+                                    <Link to="#" className=" cursor-pointer"> Why us? </Link>
                                 </li>
                                 <li className="mb-2 leading-6">
-                                    <Link
-                                        to="#"
-                                        className="transition-colors duration-300 hover:text-blue-500 focus:text-blue-600 cursor-pointer">
-                                        Pricing
-                                    </Link>
+                                    <Link to="#" className=" cursor-pointer"> Pricing </Link>
                                 </li>
                             </ul>
                         </nav>
                         <nav
                             className="col-span-2 md:col-span-4 lg:col-span-2"
                             aria-labelledby="footer-docs-5-logo">
-                            <h3
-                                className="mb-6 text-base font-medium text-white"
-                                id="footer-docs-5-logo">
-                                Docs & Help
-                            </h3>
+                            <h3 className="mb-6 font-medium text-white text-xl font-noto-serif">  Docs & Help </h3>
                             <ul>
                                 <li className="mb-2 leading-6">
-                                    <Link
-                                        to="#"
-                                        className="transition-colors duration-300 hover:text-blue-500 focus:text-blue-600 cursor-pointer">
-                                        Documentation
-                                    </Link>
+                                    <Link to="#" className=" cursor-pointer"> Documentation </Link>
                                 </li>
                                 <li className="mb-2 leading-6">
-                                    <Link
-                                        to="#"
-                                        className="transition-colors duration-300 hover:text-blue-500 focus:text-blue-600 cursor-pointer">
-                                        Customer Care
-                                    </Link>
+                                    <Link to="#" className=" cursor-pointer">  Customer Care </Link>
                                 </li>
                                 <li className="mb-2 leading-6">
-                                    <Link
-                                        to="#"
-                                        className="transition-colors duration-300 hover:text-blue-500 focus:text-blue-600 cursor-pointer">
-                                        What&apos;s New
-                                    </Link>
+                                    <Link to="#" className=" cursor-pointer"> What&apos;s New </Link>
                                 </li>
                                 <li className="mb-2 leading-6">
-                                    <Link
-                                        to="#"
-                                        className="transition-colors duration-300 hover:text-blue-500 focus:text-blue-600 cursor-pointer">
-                                        FAQ&apos;s
-                                    </Link>
+                                    <Link to="#" className=" cursor-pointer"> FAQ&apos;s </Link>
                                 </li>
                                 <li className="mb-2 leading-6">
-                                    <Link
-                                        to="#"
-                                        className="transition-colors duration-300 hover:text-blue-500 focus:text-blue-600 cursor-pointer">
-                                        Help Center
-                                    </Link>
+                                    <Link to="#" className=" cursor-pointer"> Help Center </Link>
                                 </li>
                             </ul>
                         </nav>
-                        <nav
-                            className="col-span-2 md:col-span-4 lg:col-span-2"
-                            aria-labelledby="footer-about-5-logo">
-                            <h3
-                                className="mb-6 text-base font-medium text-white"
-                                id="footer-about-5-logo">
-                                About us
-                            </h3>
+                        <nav className="col-span-2 md:col-span-4 lg:col-span-2" >
+                            <h3 className="mb-6 text-white text-xl font-noto-serif">  About us</h3>
                             <ul>
                                 <li className="mb-2 leading-6">
-                                    <Link
-                                        to="#"
-                                        className="transition-colors duration-300 hover:text-blue-500 focus:text-blue-600 cursor-pointer">
-                                        About us
-                                    </Link>
+                                    <Link to="#" className=" cursor-pointer">  About us </Link>
                                 </li>
                                 <li className="mb-2 leading-6">
-                                    <Link
-                                        to="#"
-                                        className="transition-colors duration-300 hover:text-blue-500 focus:text-blue-600 cursor-pointer">
-                                        Careers
-                                    </Link>
+                                    <Link to="#" className=" cursor-pointer"> Careers </Link>
                                 </li>
                                 <li className="mb-2 leading-6">
-                                    <Link
-                                        to="#"
-                                        className="transition-colors duration-300 hover:text-blue-500 focus:text-blue-600 cursor-pointer">
-                                        Report a Bug
-                                    </Link>
+                                    <Link to="#" className=" cursor-pointer"> Report a Bug </Link>
                                 </li>
                                 <li className="mb-2 leading-6">
-                                    <Link
-                                        to="#"
-                                        className="transition-colors duration-300 hover:text-blue-500 focus:text-blue-600 cursor-pointer">
-                                        Women&apos;s Day Special
-                                    </Link>
+                                    <Link to="#" className=" cursor-pointer"> Women&apos;s Day Special </Link>
                                 </li>
                                 <li className="mb-2 leading-6">
-                                    <Link
-                                        to="#"
-                                        className="transition-colors duration-300 hover:text-blue-500 focus:text-blue-600 cursor-pointer">
-                                        Feedback
-                                    </Link>
+                                    <Link to="#" className=" cursor-pointer"> Feedback </Link>
                                 </li>
                             </ul>
                         </nav>
-                        <nav
-                            className="col-span-2 md:col-span-4 lg:col-span-2"
-                            aria-labelledby="footer-get-in-touch-5-logo">
-                            <h3
-                                className="mb-6 text-base font-medium text-white"
-                                id="footer-get-in-touch-5-logo">
-                                Get in touch
-                            </h3>
+                        <nav className="col-span-2 md:col-span-4 lg:col-span-2">
+                            <h3 className="mb-6 font-medium text-white text-xl font-noto-serif"> Get in touch </h3>
                             <ul>
                                 <li className="mb-2 leading-6">
-                                    <Link
-                                        to="#"
-                                        className="transition-colors duration-300 hover:text-blue-500 focus:text-blue-600 cursor-pointer">
-                                        Contact
+                                    <Link to="#" className=" cursor-pointer">  Contact
                                     </Link>
                                 </li>
                                 <li className="mb-2 leading-6">
-                                    <Link
-                                        to="#"
-                                        className="transition-colors duration-300 hover:text-blue-500 focus:text-blue-600 cursor-pointer">
-                                        Support
-                                    </Link>
+                                    <Link to="#" className=" cursor-pointer"> Support </Link>
                                 </li>
                                 <li className="mb-2 leading-6">
-                                    <Link
-                                        to="#"
-                                        className="transition-colors duration-300 hover:text-blue-500 focus:text-blue-600 cursor-pointer">
-                                        Partners
-                                    </Link>
+                                    <Link to="#" className=" cursor-pointer">  Partners </Link>
                                 </li>
                                 <li className="mb-2 leading-6">
-                                    <Link
-                                        to="#"
-                                        className="transition-colors duration-300 hover:text-blue-500 focus:text-blue-600 cursor-pointer">
-                                        Join research
-                                    </Link>
+                                    <Link to="#" className=" cursor-pointer">  Join research  </Link>
                                 </li>
                             </ul>
                         </nav>

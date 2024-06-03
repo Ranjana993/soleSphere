@@ -122,10 +122,10 @@ const ProductList = () => {
                             {
                                 paginatedData().map(item => (
                                     <div key={item._id} className='w-[47%] sm:w-[23%] md:w-[36%] lg:w-1/6'>
-                                        <div key={item.id} className="relative m-2 lg:m-5 border border-gray-300 flex flex-col w-full h-full max-w-xs overflow-hidden rounded-sm  shadow-xl hover:shadow-gray-500 bg-white">
+                                        <div key={item.id} className="relative m-2 lg:m-5 border rounded-lg border-[#EB6440] flex flex-col w-full h-full max-w-xs overflow-hidden shadow-xl hover:shadow-gray-500 bg-white">
                                             <Link>
                                                 <Link className="relative mx-3 mt-3 flex h-42 lg:h-52 overflow-hidden rounded-sm" to="#">
-                                                    <img className="object-cover w-full" src={item?.url} alt="product image" />
+                                                    <img className="object-cover w-full rounded-lg" src={item?.url} alt="product image" />
                                                     <span className="absolute top-0 left-0 m-2 rounded-sm bg-black px-2 text-center text-sm font-medium text-white">{item?.price?.discount}% OFF</span>
                                                 </Link>
                                                 <div className="mt-4 px-2 lg:px-5 pb-5">
@@ -157,7 +157,7 @@ const ProductList = () => {
                                                             </svg>
                                                         </div>
                                                     </div> */}
-                                                    <Link to="#" className="flex items-center justify-center bg-black px-2 lg:px-4 py-2 text-center text-sm text-white transition hover:bg-orange-700">
+                                                    <Link to="#" className="flex items-center rounded-lg justify-center bg-[#D9534F] px-2 lg:px-4 py-3 text-center text-sm text-white transition hover:bg-orange-700">
                                                         <svg xmlns="http://www.w3.org/2000/svg" className="mr-2 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h18M9 12h6m-6 6h6" />
                                                         </svg>
@@ -172,21 +172,21 @@ const ProductList = () => {
                     )}
                     <div className="flex justify-center mt-4">
                         <button
-                            className={`px-4 py-2 mx-1 text-sm font-medium ${currentPage === 1 ? 'cursor-not-allowed bg-gray-300' : 'bg-black text-white hover:bg-gray-700'}`}
+                            className={`px-4 py-2 rounded-md mx-1 text-sm font-medium ${currentPage === 1 ? 'cursor-not-allowed bg-gray-300' : 'bg-black text-white hover:bg-gray-700'}`}
                             onClick={handlePrevPage}
                             disabled={currentPage === 1}
                         >
-                            Previous
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-chevron-left"><path d="m15 18-6-6 6-6" /></svg>
                         </button>
                         <span className="px-4 py-2 mx-1 text-sm font-medium">
-                            Page {currentPage} of {totalPages}
+                            {currentPage} of {totalPages}
                         </span>
                         <button
-                            className={`px-4 py-2 mx-1 text-sm font-medium ${currentPage === totalPages ? 'cursor-not-allowed bg-gray-300' : 'bg-black text-white hover:bg-gray-700'}`}
+                                className={`px-4 py-2 rounded-md mx-1 text-sm font-medium ${currentPage === totalPages ? 'cursor-not-allowed bg-gray-300' : 'bg-black text-white hover:bg-gray-700'}`}
                             onClick={handleNextPage}
                             disabled={currentPage === totalPages}
                         >
-                            Next
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-chevron-right"><path d="m9 18 6-6-6-6" /></svg>
                         </button>
                     </div>
                 </div>
