@@ -1,26 +1,29 @@
 const Contact = () => {
   return (
-    <div className="mt-20">
+    <div className="mt-12">
       {/* Container for demo purpose */}
       <div className="container">
         {/* Section: Design Block */}
+        <div className="">
+          <h2 className="text-slate-800  font-playfair-display font-bold lg:text-7xl my-2 text-center text-4xl uppercase leading-2 mb-12 ">Contact - Us </h2>
+        </div>
         <section className="mb-32">
           <div className="relative h-[300px] overflow-hidden bg-cover bg-[50%] bg-no-repeat bg-[url('https://zouk.co.in/cdn/shop/files/Category1_Desktop_1_-18_100162b1-1630-4bbf-af65-5d2429ae837f.png?v=1672892668&width=2000')]" />
           <div className="container px-6 md:px-12">
-            <div className="block rounded-lg  px-6 py-12 bg-[#D37676] md:py-16 md:px-12 -mt-[100px] backdrop-blur-[30px]">
+            <div className="block rounded-lg  px-6 py-12 bg-[#243258] md:py-16 md:px-12 -mt-[100px] backdrop-blur-[30px]">
               <div className="flex flex-wrap">
                 <div className="mb-12 w-full shrink-0 grow-0 basis-auto md:px-3 lg:mb-0 lg:w-5/12 lg:px-6">
                   <form>
                     <div className="relative mb-6">
-                      <input type="text" className="text-white block min-h-[auto] w-full rounded border border-green-900  bg-transparent py-[0.32rem] px-3 leading-[1.6] outline-none" placeholder="Name" />
+                      <input type="text" className="text-white block min-h-[auto] w-full rounded border border-white  bg-transparent py-[0.32rem] px-3 leading-[1.6] outline-none" placeholder="Name" />
                     </div>
                     <div className="relative mb-6" data-te-input-wrapper-init>
-                      <input type="email" className="text-white peer block min-h-[auto] w-full rounded border border-red-800 bg-transparent py-[0.32rem] px-3 leading-[1.6] outline-none " placeholder="Email address" />
+                      <input type="email" className="text-white peer block min-h-[auto] w-full rounded border border-white bg-transparent py-[0.32rem] px-3 leading-[1.6] outline-none " placeholder="Email address" />
                     </div>
                     <div className="relative mb-6" data-te-input-wrapper-init>
-                      <textarea className="text-white peer block min-h-[auto] w-full rounded border border-teal-800  bg-transparent py-[0.32rem] px-3 leading-[1.6] outline-none " rows={3} placeholder="Your message" />
+                      <textarea className="text-white peer block min-h-[auto] w-full rounded border border-white  bg-transparent py-[0.32rem] px-3 leading-[1.6] outline-none " rows={3} placeholder="Your message" />
                     </div>
-                    <button type="button" className="mb-6 inline-block w-full font-bold rounded bg-rose-700 hover:bg-rose-900  px-6  py-4  text-xs uppercase leading-normal text-white ">
+                    <button type="button" className="mb-6 inline-block w-full font-bold rounded bg-rose-700 hover:bg-rose-900  px-6  py-4  text-xs uppercase leading-normal border border-white text-white ">
                       Send
                     </button>
                   </form>
@@ -37,7 +40,7 @@ const Contact = () => {
                           </div>
                         </div>
                         <div className="ml-6 grow">
-                          <p className="mb-2 font-bold ">Technical support</p>
+                          <p className="mb-2 text-white fot-bold font-mono text-xl capitalize ">Technical support</p>
                           <p className="text-white"> support@example.com</p>
                           <p className="text-white ">+1 234-567-89 </p>
                         </div>
@@ -53,7 +56,7 @@ const Contact = () => {
                           </div>
                         </div>
                         <div className="ml-6 grow">
-                          <p className="mb-2 font-bold ">Sales questions</p>
+                          <p className="mb-2 text-white fot-bold font-mono text-xl capitalize ">Sales questions</p>
                           <p className="text-white ">sales@example.com</p>
                           <p className="text-white ">+1 234-567-89 </p>
                         </div>
@@ -69,7 +72,7 @@ const Contact = () => {
                           </div>
                         </div>
                         <div className="ml-6 grow">
-                          <p className="mb-2 font-bold ">Press</p>
+                          <p className="mb-2 text-white fot-bold font-mono text-xl capitalize ">Press</p>
                           <p className="text-white">press@example.com</p>
                           <p className="text-white">+1 234-567-89</p>
                         </div>
@@ -85,7 +88,7 @@ const Contact = () => {
                           </div>
                         </div>
                         <div className="ml-6 grow">
-                          <p className="mb-2 font-bold">Bug report</p>
+                          <p className="mb-2 text-white fot-bold font-mono text-xl capitalize ">Bug report</p>
                           <p className="text-white">bugs@example.com</p>
                           <p className="text-white">+1 234-567-89</p>
                         </div>
@@ -98,8 +101,6 @@ const Contact = () => {
           </div>
         </section>
       </div>
-
-
     </div>
   )
 }

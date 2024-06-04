@@ -73,10 +73,10 @@ const ProductList = () => {
         <div className='mx-auto'>
             <div className='flex justify-start lg:justify-around px-0 lg:px-3 items-center flex-wrap flex-col lg:flex-row mt-4 mb-4'>
                 <div className='mt-6 flex flex-wrap gap-2 lg:gap-4 justify-center items-center my-6 px-2'>
-                    <Link to="#" className='bg-[#D9534F] text-white text-sm md:text-xl lg:text-[18px] px-1 md:px-2 lg:px-4 py-1 rounded-lg cursor-pointer hover:bg-orange-900' onClick={() => handleCategoryFilter("all")}>All</Link>
-                    <Link to="#" className='bg-[#D9534F] text-white text-sm md:text-xl lg:text-[18px] px-4 py-1 rounded-lg cursor-pointer hover:bg-orange-900' onClick={() => handleCategoryFilter("menwear")}>Men Wear</Link>
-                    <Link to="#" className='bg-[#D9534F] text-white text-sm md:text-xl lg:text-[18px] cursor-pointer px-4 py-1 rounded-lg hover:bg-orange-900' onClick={() => handleCategoryFilter("womenwear")}>Women Wear</Link>
-                    <Link to="#" className='bg-[#D9534F] text-white text-sm md:text-xl lg:text-[18px] cursor-pointer px-4 py-1 rounded-lg hover:bg-orange-900' onClick={() => handleCategoryFilter("childwear")}>Kids Wear</Link>
+                    <Link to="#" className='bg-[#D9534F] text-white text-sm md:text-xl lg:text-[18px] px-1 md:px-2 lg:px-4 py-1 rounded-lg cursor-pointer hover:bg-orange-700' onClick={() => handleCategoryFilter("all")}>All</Link>
+                    <Link to="#" className='bg-[#D9534F] text-white text-sm md:text-xl lg:text-[18px] px-4 py-1 rounded-lg cursor-pointer hover:bg-orange-700' onClick={() => handleCategoryFilter("menwear")}>Men Wear</Link>
+                    <Link to="#" className='bg-[#D9534F] text-white text-sm md:text-xl lg:text-[18px] cursor-pointer px-4 py-1 rounded-lg hover:bg-orange-700' onClick={() => handleCategoryFilter("womenwear")}>Women Wear</Link>
+                    <Link to="#" className='bg-[#D9534F] text-white text-sm md:text-xl lg:text-[18px] cursor-pointer px-4 py-1 rounded-lg hover:bg-orange-700' onClick={() => handleCategoryFilter("childwear")}>Kids Wear</Link>
                 </div>
                 <div className="flex md:order-2">
                     <div className="relative">

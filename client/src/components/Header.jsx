@@ -1,8 +1,9 @@
 /* eslint-disable react/no-unknown-property */
 import { useEffect, useState } from "react";
-import { Gift, Menu, ShoppingCart, X } from "lucide-react";
+import { Gift, Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -32,7 +33,7 @@ const Header = () => {
 
     return (
         <>
-            <nav className="bg-white relative sticky top-0 left-0 border-b border-gray-200 z-[999]">
+            <nav className="bg-white relative sticky top-0 left-0 border-b border-gray-400 z-[999]">
                 <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
                     <Link to={"/"} className="flex items-center space-x-3 rtl:space-x-reverse">
                         <h3 className=" playfair-display-extrabold noto-serif-bold  text-3xl font-bold text-[#0d485d]">FootFly</h3>
@@ -43,7 +44,7 @@ const Header = () => {
                             <div>
                                 <Link to={"#"} >
                                     <div onClick={handleOpen} className="relative hidden lg:block  ">
-                                        <img className=" w-6 lg:w-8 h-6 lg:h-8   rounded-full" src="https://buffer.com/library/content/images/size/w1200/2023/10/free-images.jpg" alt="user photo" />
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user-round"><circle cx="12" cy="8" r="5" /><path d="M20 21a8 8 0 0 0-16 0" /></svg>
                                         {/* Dropdown menu */}
                                         {
                                             open && (
@@ -60,7 +61,7 @@ const Header = () => {
                                                             </>
                                                         ) : (
                                                             <li>
-                                                                <Link to="/sign-in-user" className="block px-4 py-2  hover:bg-gray-100 rounded-lg dark:hover:bg-gray-600 dark:hover:text-white">Sign in</Link>
+                                                                    <Link to="/login" className="block px-4 py-2  hover:bg-gray-100 rounded-lg dark:hover:bg-gray-600 dark:hover:text-white">Sign in</Link>
                                                             </li>
                                                         )}
                                                     </ul>
@@ -71,12 +72,12 @@ const Header = () => {
                                 </Link>
                             </div>
                             <div>
-                                <Link to="/cart">
-                                    <ShoppingCart className=" hidden lg:block  hover:rounded-full  text-gray-700" />
+                                <Link to="/cart" className="hidden lg:block">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shopping-bag"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" /><path d="M3 6h18" /><path d="M16 10a4 4 0 0 1-8 0" /></svg>
                                 </Link>
                             </div>
                             <div>
-                                <Gift className="  hidden lg:block hover:rounded-full text-gray-700" />
+                                <Gift className="hidden lg:block text-gray-700" />
                             </div>
                         </div>
                     </div>
@@ -95,7 +96,7 @@ const Header = () => {
                                 <Link to={"/"} className="block py-2 px-3 text-[#D9534F] hover:text-[#D9534F] rounded hover:bg-gray-100 md:hover:bg-transparent tracking-widest  md:p-0 text-xl "> Home </Link>
                             </li>
                             <li>
-                                <Link to={"/seller"} className="block py-2 px-3 text-gray-900 hover:text-[#D9534F] rounded hover:bg-gray-800 md:hover:bg-transparent tracking-widest  md:p-0 text-xl  "> Become a seller  </Link>
+                                <Link to={"/sign-up-seller"} className="block py-2 px-3 text-gray-900 hover:text-[#D9534F] rounded hover:bg-gray-800 md:hover:bg-transparent tracking-widest  md:p-0 text-xl  "> Become a seller  </Link>
                             </li>
                             <li>
                                 <Link to={"/contact"} className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent tracking-widest hover:text-[#D9534F] md:p-0 text-xl "> Contact Us </Link>
@@ -134,11 +135,11 @@ const Header = () => {
                                         <Link onClick={toggleMenu} to={"/contact"} className="block py-2 px-3 text-white rounded md:bg-transparent md:p-0 hover:bg-[#070F2B] "> Contact Us </Link>
                                     </li>
                                     <li>
-                                        <Link onClick={toggleMenu} to={"/seller"} className="block py-2 px-3 text-white rounded md:bg-transparent md:p-0 hover:bg-[#070F2B] ">Become a Seller </Link>
+                                        <Link onClick={toggleMenu} to={"/sign-up-seller"} className="block py-2 px-3 text-white rounded md:bg-transparent md:p-0 hover:bg-[#070F2B] ">Become a Seller </Link>
                                     </li>
                                     <li className="hover:rounded-full text-orange-700">
                                         <Link to="/cart" onClick={toggleMenu} className="block py-2 px-3 text-white rounded md:bg-transparent hover:bg-[#070F2B] md:p-0 ">
-                                            CART
+                                            Cart
                                         </Link>
                                     </li>
                                     <li className=" text-white hover:rounded-full hover:text-orange-700">

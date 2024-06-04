@@ -30,29 +30,29 @@ const SigninUser = () => {
         <section className="">
           <div className="flex items-center py-4">
             <div className="w-full flex justify-between gap-4 rounded-lg">
-              <div className="p-4 w-[50%] ml-12 px-12 space-y-4 md:space-y-6 sm:p-8">
+              <div className="p-4 w-full lg:w-[50%] ml-2 lg:ml-12 px-4 lg:px-12 space-y-4 md:space-y-6 sm:p-8">
                 <h1 className="text-5xl font-bold leading-tight tracking-tight font-mono">Sign in </h1>
                 <form className="space-y-4 md:space-y-6" onSubmit={handleSubmit}>
                   <div>
                     <label htmlFor="email" className="block mb-2 text-sm font-mono text-gray-900  font-bold ">Your Email</label>
-                    <input type="email" name="email" value={userData.email} onChange={onHandleChange} className="bg-gray-50 border border-gray-500 text-gray-900 sm:text-sm rounded-lg w-[90%] p-3 " placeholder="email@gmail.com" required />
+                    <input type="email" name="email" value={userData.email} onChange={onHandleChange} className="bg-gray-50 border border-gray-500 text-gray-900 sm:text-sm rounded-lg w-[98%] lg:w-[90%] p-3 " placeholder="email@gmail.com" required />
                   </div>
                   <div>
                     <label htmlFor="password" className="block mb-2 text-sm font-mono font-bold text-gray-900 ">Password</label>
-                    <input type="password" name="password" value={userData.password} onChange={onHandleChange} placeholder="••••••••" className="bg-gray-50 border border-gray-500 text-gray-900 sm:text-sm rounded-lg w-[90%] p-3 " required />
+                    <input type="password" name="password" value={userData.password} onChange={onHandleChange} placeholder="••••••••" className="bg-gray-50 border border-gray-500 text-gray-900 sm:text-sm rounded-lg w-[98%] lg:w-[90%] p-3 " required />
                   </div>
 
                   <div className="flex items-start">
                     <div className="flex items-center h-5">
-                      <input aria-describedby="terms" type="checkbox" className="w-[90%] h-5 border border-gray-300 rounded " required />
+                      <input aria-describedby="terms" type="checkbox" className="w-[98%] lg:w-[90%] h-5 border border-gray-300 rounded " required />
                     </div>
                     <div className="ml-3 text-sm">
                       <label htmlFor="terms" className="font-light text-gray-500">I accept the <Link className="font-medium text-primary-600 hover:underline  dark:text-primary-500" to="#">Terms and Conditions</Link></label>
                     </div>
                   </div>
-                  <button type="submit" onSubmit={handleSubmit} className="w-[90%] text-white bg-[#D9534F] hover:bg-orange-900 text-sm px-5 py-3 rounded-lg text-center dark:bg-primary-600 dark:hover:bg-primary-700 ">Create an account</button>
+                  <button type="submit" onSubmit={handleSubmit} className="w-[98%] lg:w-[90%] text-white bg-[#D9534F] hover:bg-orange-900 text-sm px-5 py-3 rounded-lg text-center dark:bg-primary-600 dark:hover:bg-primary-700 ">Create an account</button>
                   <p className="text-sm font-light ">
-                    Already have an account? <Link to="/login" className="font-medium text-primary-600 hover:underline dark:text-primary-500 hover:text-orange-500">Login here</Link>
+                    Don`&apos;t have account? <Link to="/sign-up-seller" className="font-medium text-primary-600 hover:underline dark:text-primary-500 hover:text-orange-500">SignUp here</Link>
                   </p>
                 </form>
               </div>

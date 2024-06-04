@@ -4,9 +4,10 @@ import logo from "../assets/logo1.png"
 const Footer = () => {
     return (
         // <!-- Component: Five Columns Footer with Logo -->
-        <footer className="text-start text-slate-500">
+        <div> 
+        <footer className="text-start text-slate-500 lg:px-10 lg:py-4">
             {/* <!-- Main footer --> */}
-            <div className="pt-16 pb-12 text-sm border-t text-white border-slate-200 bg-[#D9534F]">
+                <div className="pt-16 pb-12 text-sm border-t text-white lg:rounded-3xl border-slate-200 bg-[#D9534F]">
                 <div className="sm:container px-3 mx-auto">
                     <div className="grid grid-cols-4 gap-6 md:grid-cols-8 lg:grid-cols-12">
                         <div
@@ -101,6 +102,8 @@ const Footer = () => {
                 </div>
             </div>
         </footer>
+            <p className="bg-[#243763] text-white text-center py-4 text-sm lg:text-xl">Created with love </p>
+        </div>
     );
 };
 

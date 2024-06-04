@@ -1,33 +1,13 @@
 const mongoose = require('mongoose');
 
 const sellerSchema = new mongoose.Schema({
-  email: {
-    type: String,
-    required: true,
-  },
-  fullName: {
-    type: String,
-    required: true,
-  },
-  contactNumber: {
-    type: Number,
-    required: true,
-  },
-  companyName: {
-    type: String,
-    required: true,
-  },
-  location: {
-    type: String,
-  },
-  buisnessCategory: {
-    type: String,
-    required: true
-  },
-  description: {
-    type: String,
-    required: true
-  },
+  email: { type: String, required: true, },
+  fullName: { type: String, required: true, },
+  contactNumber: { type: Number, required: true,  },
+  companyName: { type: String, required: true, },
+  location: { type: String, },
+  buisnessCategory: { type: String, required: true },
+  description: { type: String, required: true },
   products: [
     {
       type: mongoose.Types.ObjectId,

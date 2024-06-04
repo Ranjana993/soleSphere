@@ -3,7 +3,7 @@ import { useState } from "react";
 import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom"
 
-const Signin = () => {
+const Login = () => {
   const [userData, setUserData] = useState({ email: "", password: "" })
 
   const navigate = useNavigate()
@@ -70,7 +70,7 @@ const Signin = () => {
                 </div>
                 <button type="submit" className="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Sign in</button>
                 <p className="text-sm font-light text-gray-500 dark:text-gray-400">
-                  Don’t have an account yet? <Link to="/seller" className="font-medium text-primary-600 hover:underline hover:text-orange-700 dark:text-primary-500">Sign up</Link>
+                  Don’t have an account yet? <Link to="/register" className="font-medium text-primary-600 hover:underline hover:text-orange-700 dark:text-primary-500">Sign up</Link>
                 </p>
               </form>
             </div>
@@ -82,4 +82,4 @@ const Signin = () => {
   )
 }
 
-export default Signin
+export default Login
