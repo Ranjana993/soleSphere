@@ -32,7 +32,6 @@ const Sellerdetail = () => {
           Mother
           Earth needs and in that spirit, use only Vegan Leather for creating all our products.</p>
       </section>
-      {/* https://i.pinimg.com/564x/b9/9e/ca/b99eca3994c106dc8766f1332bb79bd1.jpg */}
       <div className="mt-16">
         <section className="flex px-4 lg:px-12 justify-between flex-col lg:flex-row gap-6">
           <div className="w-full lg:w-[50%] mt-12">
@@ -44,7 +43,7 @@ const Sellerdetail = () => {
           </div>
         </section>
         <section className="flex px-4 lg:px-12 justify-between  flex-col lg:flex-row gap-6">
-          <div className="w-full lg:w-[50%] order-2">
+          <div className="w-full lg:w-[50%] order-1 lg:order-none">
             <img className="rounded-xl" src="https://i.pinimg.com/564x/b9/9e/ca/b99eca3994c106dc8766f1332bb79bd1.jpg" alt="" />
           </div>
           <div className="w-full lg:w-[50%] mt-12">
