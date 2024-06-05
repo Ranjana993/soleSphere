@@ -143,7 +143,7 @@ const Header = () => {
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link to={"/about-us"} className="block py-2 px-3 text-gray-900 rounded hover:text-[#D9534F] tracking-widest  md:p-0 text-xl "> About Us </Link>
+                                        <Link to={"/about-us"} onClick={toggleMenu} className="block py-2 px-3 text-white rounded md:bg-transparent hover:bg-[#070F2B] md:p-0 "> About Us </Link>
                                     </li>
                                     <li className=" text-white hover:rounded-full hover:text-orange-700">
                                         <Link to="/dashboard" className="block px-4 py-2 hover:bg-[#070F2B] ">Dashboard</Link>
