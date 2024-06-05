@@ -15,7 +15,7 @@ const Sellerdetail = () => {
             <Link to={"/sign-up-seller"} ><button className="bg-[#243258] hover:bg-[#10182f] my-8 rounded-lg text-white px-12 py-4">Get Started</button> </Link>
           </div>
           <div className="w-full lg:w-[50%]">
-            <img className="rounded-lg border border-[#002B5B]" src="https://images.unsplash.com/photo-1528304270437-714a2d6fbb6b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fGd5bSUyMHNob2VzfGVufDB8fDB8fHww" alt="" />
+            <img className="rounded-lg border border-[#a3365a] shadow-custom-medium" src="https://images.unsplash.com/photo-1528304270437-714a2d6fbb6b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fGd5bSUyMHNob2VzfGVufDB8fDB8fHww" alt="" />
           </div>
         </div>
       </div>
@@ -40,12 +40,12 @@ const Sellerdetail = () => {
             <p className="pr-1 lg:pr-12 text-gray-700">Sliding into someone&apos;s DM might be inappropriate and we girls do hate unwanted attention most of the time! But the mere thought of your feet sliding into fashion footwear like the oh-so comfortablesliders makes you want to daydream a bit longer.</p>
           </div>
           <div className="w-full lg:w-[50%]">
-            <img className="rounded-xl border border-gray-500" src="https://plus.unsplash.com/premium_photo-1663134311269-f396920c5082?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8c2xpcHBlcnxlbnwwfHwwfHx8MA%3D%3D" alt="" />
+            <img className="rounded-xl border border-rose-500 shadow-custom-semistrong" src="https://plus.unsplash.com/premium_photo-1663134311269-f396920c5082?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8c2xpcHBlcnxlbnwwfHwwfHx8MA%3D%3D" alt="" />
           </div>
         </section>
         <section className="flex px-4 lg:px-12 justify-between  flex-col lg:flex-row gap-6">
           <div className="w-full lg:w-[50%] order-1 lg:order-none">
-            <img className="rounded-xl border border-[#086972]" src="https://i.pinimg.com/564x/b9/9e/ca/b99eca3994c106dc8766f1332bb79bd1.jpg" alt="" />
+            <img className="rounded-xl border border-[#086972] shadow-custom-medium" src="https://i.pinimg.com/564x/b9/9e/ca/b99eca3994c106dc8766f1332bb79bd1.jpg" alt="" />
           </div>
           <div className="w-full lg:w-[50%] mt-12">
             <h4 className="text-5xl font-noto-serif py-4 text-rose-600">Chappals</h4>
@@ -67,7 +67,7 @@ const Sellerdetail = () => {
               foot with the help of straps— yes, indeed a strappy affair it is!</p>
           </div>
           <div className="w-full lg:w-[50%]">
-            <img className="rounded-xl border border-[#135D66]" src="https://images.unsplash.com/photo-1504473044459-aa6935a9c050?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTA0fHxzYW5kYWxzfGVufDB8fDB8fHww" alt="" />
+            <img className="rounded-xl border border-[#135D66] shadow-custom-medium" src="https://images.unsplash.com/photo-1504473044459-aa6935a9c050?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTA0fHxzYW5kYWxzfGVufDB8fDB8fHww" alt="" />
           </div>
         </section>
       </div>

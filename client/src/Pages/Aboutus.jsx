@@ -1,37 +1,49 @@
+import welcomeImg from "../assets/welcome_img.png"
+import rightImg from "../assets/about--usRight_img.png"
+
 const Aboutus = () => {
   return (
     <div>
       <div className="text-gray-700">
-        <h1 className="sevillana-regular playfair-display-extrabold  text-2xl lg:text-5xl bg-gray-400/50 text-center py-4 text-rose-600 capitalize">We are the footwear provider making your life comfortable </h1>
-        <h1 className="sevillana-regular text-3xl lg:text-5xl text-center py-6 mt-8 text-black">Not believe ??</h1>
-        <p className="px-4 text-xl py-2 lg:mt-6">FootJoy is a prominent brand in the golf footwear and apparel industry, known for its innovative designs and high-quality products. The company is a subsidiary of Acushnet Holdings Corp., which also owns other major golf brands like Titleist.</p>
+        <h1 className="playfair-display-extrabold text-2xl lg:text-5xl text-center py-8 capitalize gradient-text">
+          We are the footwear provider making your life comfortable
+        </h1>
+        <div className="flex flex-col mt-4 lg:flex-row gap-0 lg:gap-12 justify-between">
+          <div className="w-full lg:w-[50%] bg-red-400 rounded-tr-[50%] text-white">
+            <h2 className="pt-12 px-2 lg:px-20 font-sevillana text-6xl">Effortlessly defining the modern Indian classic</h2>
+            <p className="text-xl px-2 lg:px-20 py-12 font-playfair-display">FootJoy is a prominent brand in the golf footwear and apparel industry, known for its innovative designs and high-quality products. The company is a subsidiary of Acushnet Holdings Corp., which also owns other major golf brands like Titleist.</p>
+          </div>
+          <div className="w-full lg:w-[50%] ml-0 lg:ml-32">
+            <img src={welcomeImg} alt="" />
+          </div>
+        </div>
+
         <div>
-          <h3 className="text-2xl px-4 py-6 text-rose-500 underline sevillana-regular ">Best Footwear Online </h3>
-          <p className="py-2 px-4">Who can forget their podiatrist’s advice of investing a good amount of your hard-earned paycheck on a pair of great quality footwear with the softest soles, cushion and comfort. An exquisite pair of footwear shoes, sandals, chappals, sliders or bellies that your friends, family and colleagues will notice and compliment on.</p>
-          <p className="py-2 px-4">Footwear online shopping is tricky. There is always a fear of shoes being different from their online appearances. We, at <span className="underline text-rose-500"> FootJoy</span></p>
-          <p className="px-4 py-2">, truly care about the ultimate satisfaction of our shoppers and make sure that only products of superior quality reach your doors. We don’t believe in leaving behind the nurturing our Mother Earth needs and in that spirit, use only Vegan Leather for creating all our products.The footwear store</p>
-          <p className="py-2 px-4">at FootJoy is all about timelessness and reliability made with high quality materials. These hand-crafted beauties made with love for our diverse cultural motifs and designs are truly one-of-a-kind— every individual piece a masterpiece in its own right.</p>
+          <h3 className=" px-4 mt-12 py-4 lg:py-6 text-rose-500 font-serif  text-center text-3xl lg:text-6xl">Only the Good Goes In. </h3>
         </div>
-        <div className="px-4">
-          <h3 className="text-xl text-black">The <span className="underline">footwear store</span></h3>
-          <p>at Zouk is all about timelessness and reliability made with high quality materials. These hand-crafted beauties made with love for our diverse cultural motifs and designs are truly one-of-a-kind— every individual piece a masterpiece in its own right.
-          </p>
-          <p className="py-3">
-            If the thought, “let’s buy footwear online today” has entered your head, then please give us the opportunity to take you into a virtual world of footwear shopping with us. We have various styles of footwear options for you. Let’s not waste time anymore and directly dive into Zouk’s extensive collection of footwear.</p>
+        <div className="flex flex-col lg:flex-row gap-4 p-6 lg:p-12 justify-center items-center lg:items-stretch">
+          <div className="border border-green-400 rounded-3xl flex flex-col w-[99%] lg:w-[25%] items-center p-4 shadow-custom-strong  hover:shadow-custom-medium">
+            <img className="w-[50%] p-6 rounded-full" src="https://zouk.co.in/cdn/shop/files/image_25.png?v=1653330222" alt="" />
+            <p className="mt-8 text-sm lg:text-[16px]">We believe in crafting the good. In fact, we are a PeTA approved Vegan brand. So, you can happily say - no animals were harmed in making this.</p>
+          </div>
+          <div className="border border-[#6DADDE] rounded-3xl flex flex-col w-[99%] lg:w-[25%]  items-center p-4 shadow-custom-medium hover:shadow-custom-violet ">
+            <img className="w-[40%] p-6" src="https://zouk.co.in/cdn/shop/files/image_27.png?v=1653330222" alt="" />
+            <p className="mt-8 text-sm lg:text-[16px]">We are unapologetically Indian. Proud but humble. Weaving tradition with the contemporary, we bring the modern Indian classic to the world.</p>
+          </div>
+          <div className="border border-rose-400 rounded-3xl flex flex-col w-[99%] lg:w-[25%]  items-center shadow-custom-light hover:shadow-custom-semistrong p-4">
+            <img className="w-[40%] bg-cover p-6" src="https://zouk.co.in/cdn/shop/files/image_26.png?v=1653330222" alt="" />
+            <p className="mt-8 text-sm lg:text-[16px]">Everything is thoughtfully designed. Our artisans then sculpt them to life. By hand. We thus make something that is authentically you.</p>
+          </div>
         </div>
-        <img className="py-4" src="https://zouk.co.in/cdn/shop/collections/Banners_c2-38.png?v=1716362061&width=2000" alt="" />
-        <h2 className="text-rose-500 text-3xl sevillana-regular playfair-display-extrabold text-center py-2 bg-gray-400/50">FootJoy Online Footwear Store Collection</h2>
-        <div className="px-4">
-          <h4 className="sevillana-regular text-2xl py-3 text-rose-400 underline">Sliders</h4>
-          <p>Sliding into someone&apos;s DM might be inappropriate and we girls do hate unwanted attention most of the time! But the mere thought of your feet sliding into fashion footwear like the oh-so-comfortablesliders makes you want to daydream a bit longer. </p>
-          <h4 className="sevillana-regular text-2xl py-3 text-rose-400 underline">Chappals </h4>
-          <p className="py-2">Our first pick when it’s raining footwear sale online, chappalsare everyone’s summer hot-picks. The complete package of comfort, style and designs-to-die-for, we have chappals hand-crafted for you that pays the rightful tribute to India’s cultural and geographical motifs.
-          </p>
-          <p className="py-3"> Staying true to our values of modernizing the traditional, Zouk has given a modern twist to the traditional Kolhapuri Chappals. Our modern Indian chappals can be paired with every possible outfit look— Indian, casual, semi-formal and formal attires.</p>
-          <h4 className="sevillana-regular text-2xl py-3 text-rose-400 underline">Sandals</h4>
-          <p>are our best friends forever, and ever. You want to go for a formal look? A casual look? Want to look tall or feel comfortable in your god-given blessed height? Sandals have got it all covered. Sandals can be open or close-toed and are held onto the foot with the help of straps— yes, indeed a strappy affair it is!</p>
-          <p className="py-3">
-            Gladiator sandalsat Zouk greatly add to your personality. The elastic in the strap of the sandals gives you the perfect fit. And who does not want to feel like a warrior when given that option? </p>
+        <div className="flex flex-col lg:flex-row gap-0 lg:gap-12 py-14 justify-between mt-12">
+          <div className="w-full lg:w-[50%] ml-0 lg:ml-32">
+            <img src={rightImg} alt="" />
+          </div>
+          <div className="w-full lg:w-[50%] bg-[#e89535] rounded-tr-[30%] lg:rounded-tr-[50%] lg:rounded-bl-[50%] text-white">
+            <h2 className="pt-12 px-2 lg:px-20 font-sevillana text-3xl">It all started with a vision: To bring stylish and functional products with an essence of India, to the world.</h2>
+            <p className="text-xl px-2 lg:px-20 py-12 font-playfair-display text-white lg:text-blue-600 lg:font-bold">FootJoy is a prominent brand in the golf footwear and apparel industry, known for its innovative designs and high-quality products. The company is a subsidiary of Acushnet Holdings Corp., which also owns other major golf brands like Titleist.</p>
+          </div>
+
         </div>
       </div>
     </div>

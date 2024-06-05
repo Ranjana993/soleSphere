@@ -1,13 +1,15 @@
-import axios from "axios";
-import { useState } from "react";
-import toast from "react-hot-toast";
+import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
+import axios from "axios"
+import login_img from "../assets/login_img.png"
 
 const Login = () => {
-  const [userData, setUserData] = useState({ email: "", password: "" })
-
+  const [userData, setUserData] = useState({
+    username: "",
+    email: "",
+    password: ""
+  })
   const navigate = useNavigate()
-
   const onHandleChange = (e) => {
     setUserData((prevUserData) => ({
       ...prevUserData,
@@ -15,70 +17,52 @@ const Login = () => {
     }));
   };
 
-
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    const { email, password } = userData;
-    try {
-      const response = await axios.post('https://solesphere.onrender.com/signin', { email, password });
-      const data = response.data;
-      if (data.token) {
-        localStorage.setItem('token', data.token);
-        console.log('Sign-in successful');
-        toast.success('Successfully logged in user');
-        navigate('/');
-      } else {
-        console.log(data.msg);
-        toast.error('Sign-in failed: ' + data.msg);
-      }
-    } catch (error) {
-      console.error('Error:', error);
-      toast.error('Something went wrong: ' + error.message);
-    }
-  };
-
-
-
+    e.preventDefault()
+    const data = await axios.post("https://solesphere.onrender.com/signup", userData)
+    console.log(data?.data)
+    navigate("/login")
+  }
   return (
-    <div className="">
-      <section className="">
-        <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-          <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
-            <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
-              <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
-                Sign in to your account
-              </h1>
-              <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
-                <div>
-                  <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
-                  <input type="email" name="email" value={userData.email} onChange={onHandleChange} id="email" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@company.com" required />
-                </div>
-                <div>
-                  <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
-                  <input type="password" name="password" id="password" placeholder="••••••••" value={userData.password} onChange={onHandleChange} className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
-                </div>
-                <div className="flex items-center justify-between">
+    <>
+      <div className="py-12">
+        <section className="">
+          <div className="flex items-center py-4">
+            <div className="w-full flex justify-between gap-4 rounded-lg">
+              <div className="p-4 w-full lg:w-[50%] ml-2 lg:ml-12 px-4 lg:px-12 space-y-4 md:space-y-6 sm:p-8">
+                <h1 className="text-5xl font-bold leading-tight tracking-tight font-mono">Sign in </h1>
+                <form className="space-y-4 md:space-y-6" onSubmit={handleSubmit}>
+                  <div>
+                    <label htmlFor="email" className="block mb-2 text-sm font-mono text-gray-900  font-bold ">Your Email</label>
+                    <input type="email" name="email" value={userData.email} onChange={onHandleChange} className="bg-gray-50 border border-gray-500 text-gray-900 sm:text-sm rounded-lg w-[98%] lg:w-[90%] p-3 " placeholder="email@gmail.com" required />
+                  </div>
+                  <div>
+                    <label htmlFor="password" className="block mb-2 text-sm font-mono font-bold text-gray-900 ">Password</label>
+                    <input type="password" name="password" value={userData.password} onChange={onHandleChange} placeholder="••••••••" className="bg-gray-50 border border-gray-500 text-gray-900 sm:text-sm rounded-lg w-[98%] lg:w-[90%] p-3 " required />
+                  </div>
+
                   <div className="flex items-start">
                     <div className="flex items-center h-5">
-                      <input id="remember" aria-describedby="remember" type="checkbox" className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800" required />
+                      <input aria-describedby="terms" type="checkbox" className="w-[98%] lg:w-[90%] h-5 border border-gray-300 rounded " required />
                     </div>
                     <div className="ml-3 text-sm">
-                      <label htmlFor="remember" className="text-gray-500 dark:text-gray-300">Remember me</label>
+                      <label htmlFor="terms" className="font-light text-gray-500">I accept the <Link className="font-medium text-primary-600 hover:underline  dark:text-primary-500" to="#">Terms and Conditions</Link></label>
                     </div>
                   </div>
-                  <Link to="#" className="text-sm font-medium text-white underline dark:text-primary-500">Forgot password?</Link>
-                </div>
-                <button type="submit" className="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Sign in</button>
-                <p className="text-sm font-light text-gray-500 dark:text-gray-400">
-                  Don’t have an account yet? <Link to="/register" className="font-medium text-primary-600 hover:underline hover:text-orange-700 dark:text-primary-500">Sign up</Link>
-                </p>
-              </form>
+                  <button type="submit" onSubmit={handleSubmit} className="w-[98%] lg:w-[90%] text-white bg-[#e85454] hover:bg-orange-900 text-sm px-5 py-3 rounded-lg text-center dark:bg-primary-600 dark:hover:bg-primary-700 ">Create an account</button>
+                  <p className="text-sm font-light ">
+                    Don`&apos;t have account? <Link to="/register" className="font-medium text-primary-600 hover:underline dark:text-primary-500 hover:text-orange-500">SignUp here</Link>
+                  </p>
+                </form>
+              </div>
+              <div className="w-[50%] px-12 hidden lg:block">
+                <img className="w-full rounded-xl bg-contain" src={"https://i.pinimg.com/564x/c3/c8/5c/c3c85cc123e0519b919d9812f961958d.jpg"} alt="" />
+              </div>
             </div>
           </div>
-        </div>
-      </section>
-
-    </div>
+        </section>
+      </div>
+    </>
   )
 }
 

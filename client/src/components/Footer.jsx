@@ -5,9 +5,9 @@ const Footer = () => {
     return (
         // <!-- Component: Five Columns Footer with Logo -->
         <div> 
-        <footer className="text-start text-slate-500 lg:px-10 lg:py-4">
+        <footer className="text-start text-slate-500 lg:px-8 ">
             {/* <!-- Main footer --> */}
-                <div className="pt-16 pb-12 text-sm border-t text-white lg:rounded-3xl border-slate-200 bg-[#D9534F]">
+                <div className="pt-16 pb-12 text-sm border-t text-white lg:rounded-tr-[30%] lg:rounded-tl-[30%] border-slate-200 bg-[#070B23]">
                 <div className="sm:container px-3 mx-auto">
                     <div className="grid grid-cols-4 gap-6 md:grid-cols-8 lg:grid-cols-12">
                         <div
