@@ -14,17 +14,17 @@ const Cart1 = () => {
         cartItems.length === 0 ? (
           <CartPage />
         ) : (
-          <div>
-            <ul className='flex items-start flex-col p-4 w-full'>
+            <div className='flex flex-col lg:flex-row p-4 w-full'>
+              <ul className=' flex flex-col items-center w-full lg:w-[50%]'>
               {
                 cartItems.map(item => (
-                  <li key={item._id} className="flex border bg-white shadow-custom-medium border-gray-300 rounded-lg p-2 mb-4 w-full lg:w-[50%] h-64">
+                  <li key={item._id} className="flex border bg-white shadow-custom-medium border-gray-300 rounded-lg p-2 mb-4 lg:w-[60%]  ">
                     <img src={item.detailUrl} alt={item.title.shortTitle} className="w-[50%] object-cover mr-4" />
                     <div className="flex flex-col w-full">
                       <div className='flex justify-end'>
                         <p className='bg-red-900 text-white w-fit float-right p-1 px-4 rounded-xl'>{item.tagline}</p>
                       </div>
-                      <h3 className='text-xl py-3 font-noto-serif font-bold'>{item.title.shortTitle}</h3>
+                      <h3 className='text-sm lg:text-xl py-3 font-noto-serif font-bold'>{item.title.shortTitle}</h3>
                       <p><span className='font-noto-serif font-bold'>Price:</span> ₹{item.price.cost}</p>
                       <p><span className='font-noto-serif font-bold'>Quantity:</span> {item.quantity}</p>
                       <p><span className='font-noto-serif font-bold'>Product Category:</span> {item?.ProductType} </p>
@@ -37,7 +37,7 @@ const Cart1 = () => {
                 ))
               }
             </ul>
-            <div className="mt-4">
+            <div className="w-[50%]">
               <p>Total Cost: ₹{totalCost}</p>
               <button
                 className="bg-red-500 text-white px-4 py-2 rounded"
