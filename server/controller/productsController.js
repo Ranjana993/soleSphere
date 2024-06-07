@@ -3,6 +3,7 @@ const uploadOnCloudinary = require("../config/cloudinary");
 const productModel = require("../models/productModel")
 const fs = require('fs');
 
+// getting all products
 const getProducts = async (req, res) => {
     try {
         const products = await productModel.find({});
@@ -13,9 +14,25 @@ const getProducts = async (req, res) => {
     }
 }
 
+// getting products by id 
+const getProductById = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const product = await productModel.findById(id); 
+
+        if (!product) {
+            return res.status(404).json({ message: 'Product not found' });
+        }
+
+        res.json({ product });
+    } catch (error) {
+        console.error('Error fetching product:', error);
+        res.status(500).json({ message: 'Server error' });
+    }
+};
+
+
 // Create a new product
-
-
 const uploadproducts = async (req, res) => {
     try {
         // Destructure the incoming form data
@@ -87,4 +104,4 @@ const userProductController = async (req, res) => {
 
 
 
-module.exports = { getProducts, uploadproducts, userProductController } 
+module.exports = { getProducts, uploadproducts, userProductController, getProductById } 
