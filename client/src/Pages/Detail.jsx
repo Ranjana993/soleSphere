@@ -20,7 +20,7 @@ const Description = () => {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const res = await axios.get(`http://localhost:8000/get-products/${id}`);
+        const res = await axios.get(`https://solesphere-backend12.onrender.com/get-products/${id}`);
         console.log(res);
         setProduct(res.data.product);
       } catch (error) {
