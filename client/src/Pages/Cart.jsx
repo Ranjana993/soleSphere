@@ -1,5 +1,6 @@
 import {Link} from "react-router-dom"
-const Cart = () => {
+
+const CartPage = () => {
   return (
     <>
 
@@ -24,4 +25,4 @@ const Cart = () => {
   )
 }
 
-export default Cart
+export default CartPage

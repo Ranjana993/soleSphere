@@ -2,6 +2,11 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../../redux/slice/cartSlice';
+import toast from 'react-hot-toast';
+
+
 
 const ProductList = () => {
     const [data, setData] = useState([]);
@@ -9,7 +14,10 @@ const ProductList = () => {
     const [loading, setLoading] = useState(true);
     const [filteredData, setFilteredData] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
-    const itemsPerPage = 10; // Number of items per page
+    const itemsPerPage = 10;
+    const dispatch = useDispatch();
+
+
 
     const getAllData = async () => {
         try {
@@ -37,7 +45,7 @@ const ProductList = () => {
             item.title.shortTitle.toLowerCase().includes(query.toLowerCase())
         );
         setFilteredData(filtered);
-        setCurrentPage(1); // Reset to the first page after filtering
+        setCurrentPage(1);
     };
 
     const handleCategoryFilter = (category) => {
@@ -50,7 +58,7 @@ const ProductList = () => {
             );
         }
         setFilteredData(filtered);
-        setCurrentPage(1); // Reset to the first page after filtering
+        setCurrentPage(1);
     };
 
     const paginatedData = () => {
@@ -68,6 +76,9 @@ const ProductList = () => {
     const handleNextPage = () => {
         setCurrentPage(prev => Math.min(prev + 1, totalPages));
     };
+
+
+
 
     return (
         <div className='mx-auto'>
@@ -121,6 +132,7 @@ const ProductList = () => {
                         <div className='flex gap-2 lg:gap-5 m-auto w-full flex-wrap items-center justify-center'>
                             {
                                 paginatedData().map(item => (
+
                                     <div key={item._id} className='w-[47%] sm:w-[23%] md:w-[36%] lg:w-1/6'>
                                         <div key={item.id} className="relative m-2 lg:m-5 border rounded-lg border-[#EB6440] flex flex-col w-full h-full max-w-xs overflow-hidden shadow-xl hover:shadow-gray-500 bg-white">
                                             <Link>
@@ -128,71 +140,55 @@ const ProductList = () => {
                                                     <img className="object-cover w-full rounded-lg" src={item?.url} alt="product image" />
                                                     <span className="absolute top-0 left-0 m-2 rounded-sm bg-black px-2 text-center text-sm font-medium text-white">{item?.price?.discount}% OFF</span>
                                                 </Link>
-                                                <div className="mt-4 px-2 lg:px-5 pb-5">
+                                                <div className="mt-4 px-5 pb-5 flex flex-col">
                                                     <Link to="#">
-                                                        <h5 className="text-xl tracking-tight text-slate-900">{item.title.shortTitle}</h5>
+                                                        <h5 className="text-md font-semibold tracking-tight text-slate-900">{item?.title?.shortTitle}</h5>
                                                     </Link>
-                                                    <div className="mt-2 mb-1 md:mb-2 lg:mb-5 flex items-center justify-between">
+                                                    <div className="flex items-center justify-between">
                                                         <p>
-                                                            <span className="text-md md:xl lg:text-3xl font-bold text-slate-900">${item?.price?.cost}</span>
-                                                            <span className="text-xs text-slate-900 line-through">${item?.price?.mrp}</span>
+                                                            <span className="text-xl font-bold text-slate-900">₹{item?.price?.cost}</span>
+                                                            <span className="text-sm text-slate-900 line-through">₹{item?.price?.mrp}</span>
                                                         </p>
                                                     </div>
-                                                    {/* <div className="flex items-center justify-between">
-                                                        <div className="flex items-center">
-                                                            <svg aria-hidden="true" className="h-5 w-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20">
-                                                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.598 4.92a1 1 0 0 0 .95.69h5.162c.969 0 1.371 1.24.588 1.81l-4.18 3.04a1 1 0 0 0-.364 1.118l1.598 4.92c.3.921-.755 1.688-1.54 1.118l-4.18-3.04a1 1 0 0 0-1.176 0l-4.18 3.04c-.784.57-1.838-.197-1.54-1.118l1.598-4.92a1 1 0 0 0-.364-1.118L.752 10.348c-.783-.57-.38-1.81.588-1.81h5.162a1 1 0 0 0 .95-.69l1.598-4.92z" />
+                                                    <div className="flex items-center justify-between mt-2 w-full">
+                                                        <Link to={`/product/${item._id}`} className="flex items-center rounded-lg justify-center bg-[#D9534F] px-2 lg:px-4 py-3 text-center w-full text-sm text-white transition hover:bg-orange-700">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" className="mr-2 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h18M9 12h6m-6 6h6" />
                                                             </svg>
-                                                            <svg aria-hidden="true" className="h-5 w-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20">
-                                                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.598 4.92a1 1 0 0 0 .95.69h5.162c.969 0 1.371 1.24.588 1.81l-4.18 3.04a1 1 0 0 0-.364 1.118l1.598 4.92c.3.921-.755 1.688-1.54 1.118l-4.18-3.04a1 1 0 0 0-1.176 0l-4.18 3.04c-.784.57-1.838-.197-1.54-1.118l1.598-4.92a1 1 0 0 0-.364-1.118L.752 10.348c-.783-.57-.38-1.81.588-1.81h5.162a1 1 0 0 0 .95-.69l1.598-4.92z" />
-                                                            </svg>
-                                                            <svg aria-hidden="true" className="h-5 w-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20">
-                                                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.598 4.92a1 1 0 0 0 .95.69h5.162c.969 0 1.371 1.24.588 1.81l-4.18 3.04a1 1 0 0 0-.364 1.118l1.598 4.92c.3.921-.755 1.688-1.54 1.118l-4.18-3.04a1 1 0 0 0-1.176 0l-4.18 3.04c-.784.57-1.838-.197-1.54-1.118l1.598-4.92a1 1 0 0 0-.364-1.118L.752 10.348c-.783-.57-.38-1.81.588-1.81h5.162a1 1 0 0 0 .95-.69l1.598-4.92z" />
-                                                            </svg>
-                                                            <svg aria-hidden="true" className="h-5 w-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20">
-                                                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.598 4.92a1 1 0 0 0 .95.69h5.162c.969 0 1.371 1.24.588 1.81l-4.18 3.04a1 1 0 0 0-.364 1.118l1.598 4.92c.3.921-.755 1.688-1.54 1.118l-4.18-3.04a1 1 0 0 0-1.176 0l-4.18 3.04c-.784.57-1.838-.197-1.54-1.118l1.598-4.92a1 1 0 0 0-.364-1.118L.752 10.348c-.783-.57-.38-1.81.588-1.81h5.162a1 1 0 0 0 .95-.69l1.598-4.92z" />
-                                                            </svg>
-                                                            <svg aria-hidden="true" className="h-5 w-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20">
-                                                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.598 4.92a1 1 0 0 0 .95.69h5.162c.969 0 1.371 1.24.588 1.81l-4.18 3.04a1 1 0 0 0-.364 1.118l1.598 4.92c.3.921-.755 1.688-1.54 1.118l-4.18-3.04a1 1 0 0 0-1.176 0l-4.18 3.04c-.784.57-1.838-.197-1.54-1.118l1.598-4.92a1 1 0 0 0-.364-1.118L.752 10.348c-.783-.57-.38-1.81.588-1.81h5.162a1 1 0 0 0 .95-.69l1.598-4.92z" />
-                                                            </svg>
-                                                        </div>
-                                                    </div> */}
-                                                    <Link to="#" className="flex items-center rounded-lg justify-center bg-[#D9534F] px-2 lg:px-4 py-3 text-center text-sm text-white transition hover:bg-orange-700">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" className="mr-2 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h18M9 12h6m-6 6h6" />
-                                                        </svg>
-                                                        Add to cart
-                                                    </Link>
+                                                            Buy now 
+                                                        </Link>
+                                                    </div>
                                                 </div>
                                             </Link>
                                         </div>
                                     </div>
-                                ))}
+                                ))
+                            }
                         </div>
                     )}
-                    <div className="flex justify-center mt-4">
-                        <button
-                            className={`px-4 py-2 rounded-md mx-1 text-sm font-medium ${currentPage === 1 ? 'cursor-not-allowed bg-gray-300' : 'bg-black text-white hover:bg-gray-700'}`}
-                            onClick={handlePrevPage}
-                            disabled={currentPage === 1}
-                        >
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-chevron-left"><path d="m15 18-6-6 6-6" /></svg>
-                        </button>
-                        <span className="px-4 py-2 mx-1 text-sm font-medium">
-                            {currentPage} of {totalPages}
-                        </span>
-                        <button
-                                className={`px-4 py-2 rounded-md mx-1 text-sm font-medium ${currentPage === totalPages ? 'cursor-not-allowed bg-gray-300' : 'bg-black text-white hover:bg-gray-700'}`}
-                            onClick={handleNextPage}
-                            disabled={currentPage === totalPages}
-                        >
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-chevron-right"><path d="m9 18 6-6-6-6" /></svg>
-                        </button>
-                    </div>
                 </div>
             )}
+
+            <div className="flex justify-center my-4">
+                <button
+                    onClick={handlePrevPage}
+                    disabled={currentPage === 1}
+                    className={`px-4 py-2 mx-1 rounded ${currentPage === 1 ? 'bg-gray-200 cursor-not-allowed' : 'bg-blue-500 text-white hover:bg-blue-700'}`}
+                ><svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-chevron-left"><path d="m15 18-6-6 6-6" /></svg>
+
+                </button>
+                <span className="px-4 py-2 mx-1">{currentPage}</span>
+                <button
+                    onClick={handleNextPage}
+                    disabled={currentPage === totalPages}
+                    className={`px-4 py-2 mx-1 rounded ${currentPage === totalPages ? 'bg-gray-200 cursor-not-allowed' : 'bg-blue-500 text-white hover:bg-blue-700'}`}
+                >
+                    <svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-chevron-right"><path d="m9 18 6-6-6-6" /></svg>
+
+                </button>
+            </div>
         </div>
     );
-};
+}
 
 export default ProductList;

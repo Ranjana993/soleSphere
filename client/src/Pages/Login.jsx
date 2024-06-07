@@ -1,7 +1,6 @@
 import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import axios from "axios"
-import login_img from "../assets/login_img.png"
 
 const Login = () => {
   const [userData, setUserData] = useState({
