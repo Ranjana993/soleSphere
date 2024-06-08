@@ -126,7 +126,9 @@ const ProductList = () => {
                 <div className='w-full'>
                     {filteredData.length === 0 ? (
                         <div className="flex justify-center mt-10">
-                            <span className="text-4xl font-bold text-gray-500">No Data Found</span>
+                            <span className="text-4xl font-bold text-gray-500 py-12">
+                                    <img src="https://img.freepik.com/free-vector/no-data-concept-illustration_114360-626.jpg?size=626&ext=jpg" alt="" />
+                            </span>
                         </div>
                     ) : (
                         <div className='flex gap-2 lg:gap-5 m-auto w-full flex-wrap items-center justify-center'>

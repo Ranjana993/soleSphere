@@ -147,3 +147,33 @@
     -o-transform: scale(21);
 }
 }
+
+
+/* cart */
+.blur-background {
+  filter: blur(5px);
+  pointer-events: none;
+}
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  /* Ensure the popup is above all other content */
+}
+
+.popup-content {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  z-index: 1001;
+  /* Ensure the content inside the popup is above the overlay */
+}
