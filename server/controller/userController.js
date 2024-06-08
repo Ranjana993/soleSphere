@@ -6,9 +6,9 @@ const jwt = require('jsonwebtoken');
 const signupUser = async (req, res) => {
     try {
         console.log(req.body);
-        const { username, email, password } = req.body;
+        const { username, email, password , contactNo } = req.body;
 
-        if (!username || !email || !password) {
+        if (!username || !email || !password || !contactNo) {
             return res.status(403).json({ msg: "Please provide all credentials..." });
         }
 
@@ -20,7 +20,7 @@ const signupUser = async (req, res) => {
         const hashedPassword = await bcrypt.hash(password, 10);
 
         // Create a new user instance with the User model
-        const newUser = await new User({ username, email, password: hashedPassword }).save();
+        const newUser = await new User({ username, email, password: hashedPassword, contactNo }).save();
         console.log(newUser);
 
         return res.status(200).json({ msg: "User successfully created...", newUser });
