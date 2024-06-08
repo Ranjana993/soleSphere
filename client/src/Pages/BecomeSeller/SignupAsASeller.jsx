@@ -1,14 +1,18 @@
 import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import axios from "axios"
-
-// https://images.unsplash.com/photo-1610899805519-77847d0c4c70?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8ODN8fGZvb3R3ZWFyfGVufDB8fDB8fHww
+import { toast } from "react-hot-toast"
 
 const SignupAsASeller = () => {
     const [userData, setUserData] = useState({
-        username: "",
         email: "",
-        password: ""
+        fullName: "",
+        password: "",
+        contactNumber: "",
+        companyName: "",
+        location: "",
+        buisnessCategory: "",
+        description: "",
     })
     const navigate = useNavigate()
     const onHandleChange = (e) => {
@@ -20,10 +24,22 @@ const SignupAsASeller = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        const data = await axios.post("https://solesphere.onrender.com/signup", userData)
-        console.log(data?.data)
-        navigate("/sign-in-seller")
+        try {
+            const response = await axios.post("http://localhost:8000/register-as-a-seller", userData, {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+            console.log(response?.data)
+            // console.log("userData....",userData);
+            toast.success(response.message)
+            navigate("/sign-in-seller")
+        } catch (error) {
+            console.log(error);
+            toast.error("Something went wrong while registering user")
+        }
     }
+
     return (
         <>
             <div className="py-10">
@@ -34,8 +50,8 @@ const SignupAsASeller = () => {
                                 <h1 className="text-4xl lg:text-5xl font-bold leading-tight tracking-tight font-mono pb-4">Create Account</h1>
                                 <form className="space-y-4 md:space-y-6" onSubmit={handleSubmit}>
                                     <div>
-                                        <label htmlFor="username" className="mb-2 text-md font-mono font-bold">Your Full Name</label>
-                                        <input type="text" name="username" value={userData.username} onChange={onHandleChange} className="bg-gray-50 border border-gray-500 text-gray-900 sm:text-sm rounded-lg w-[98%] lg:w-[90%] p-2.5 " placeholder="Enter your full name" required />
+                                        <label htmlFor="fullName" className="mb-2 text-md font-mono font-bold">Your Full Name</label>
+                                        <input type="text" name="fullName" value={userData.fullName} onChange={onHandleChange} className="bg-gray-50 border border-gray-500 text-gray-900 sm:text-sm rounded-lg w-[98%] lg:w-[90%] p-2.5 " placeholder="Enter your full name" required />
                                     </div>
                                     <div>
                                         <label htmlFor="email" className="block mb-2 text-sm font-mono text-gray-900  font-bold ">Your Email</label>
@@ -46,24 +62,24 @@ const SignupAsASeller = () => {
                                         <input type="password" name="password" value={userData.password} onChange={onHandleChange} placeholder="••••••••" className="bg-gray-50 border border-gray-500 text-gray-900 sm:text-sm rounded-lg w-[98%] lg:w-[90%] p-2.5 " required />
                                     </div>
                                     <div>
-                                        <label htmlFor="contact" className="block mb-2 text-sm font-mono text-gray-900  font-bold ">Your Contact No.</label>
-                                        <input type="text" name="contact" value={userData.email} onChange={onHandleChange} className="bg-gray-50 border border-gray-500 text-gray-900 sm:text-sm rounded-lg w-[98%] lg:w-[90%] p-2.5 " placeholder="+91 412411" required />
+                                        <label htmlFor="contactNumber" className="block mb-2 text-sm font-mono text-gray-900  font-bold ">Your Contact No.</label>
+                                        <input type="text" name="contactNumber" value={userData.contactNumber} onChange={onHandleChange} className="bg-gray-50 border border-gray-500 text-gray-900 sm:text-sm rounded-lg w-[98%] lg:w-[90%] p-2.5 " placeholder="+91 412411" required />
                                     </div>
                                     <div>
-                                        <label htmlFor="contact" className="block mb-2 text-sm font-mono text-gray-900  font-bold ">Your Company Name</label>
-                                        <input type="text" name="contact" value={userData.email} onChange={onHandleChange} className="bg-gray-50 border border-gray-500 text-gray-900 sm:text-sm rounded-lg w-[98%] lg:w-[90%] p-2.5 " placeholder="Ramu footwear shop" required />
+                                        <label htmlFor="companyName" className="block mb-2 text-sm font-mono text-gray-900  font-bold ">Your Company Name</label>
+                                        <input type="text" name="companyName" value={userData.companyName} onChange={onHandleChange} className="bg-gray-50 border border-gray-500 text-gray-900 sm:text-sm rounded-lg w-[98%] lg:w-[90%] p-2.5 " placeholder="Ramu footwear shop" required />
                                     </div>
                                     <div>
                                         <label htmlFor="location" className="block mb-2 text-sm font-mono text-gray-900  font-bold ">Your Location</label>
-                                        <input type="text" name="location" value={userData.email} onChange={onHandleChange} className="bg-gray-50 border border-gray-500 text-gray-900 sm:text-sm rounded-lg w-[98%] lg:w-[90%] p-2.5 " placeholder="street 23ft Nehru road Delhi" required />
+                                        <input type="text" name="location" value={userData.location} onChange={onHandleChange} className="bg-gray-50 border border-gray-500 text-gray-900 sm:text-sm rounded-lg w-[98%] lg:w-[90%] p-2.5 " placeholder="street 23ft Nehru road Delhi" required />
                                     </div>
                                     <div>
                                         <label htmlFor="buisnessCategory" className="block mb-2 text-sm font-mono text-gray-900  font-bold ">Your buisness Category</label>
-                                        <input type="text" name="category" value={userData.email} onChange={onHandleChange} className="bg-gray-50 border border-gray-500 text-gray-900 sm:text-sm rounded-lg w-[98%] lg:w-[90%] p-2.5 " placeholder="e.g. kids menswear and womens wear...." required />
+                                        <input type="text" name="buisnessCategory" value={userData.buisnessCategory} onChange={onHandleChange} className="bg-gray-50 border border-gray-500 text-gray-900 sm:text-sm rounded-lg w-[98%] lg:w-[90%] p-2.5 " placeholder="e.g. kids menswear and womens wear...." required />
                                     </div>
                                     <div>
                                         <label htmlFor="description" className="block mb-2 text-sm font-mono text-gray-900  font-bold ">Description</label>
-                                        <textarea type="text" rows={5} cols={40} name="description" value={userData.email} onChange={onHandleChange} className="bg-gray-50 border border-gray-500 text-gray-900 sm:text-sm rounded-lg w-[98%] lg:w-[90%] p-2.5 " placeholder="Description about your company/organisation" required />
+                                        <textarea type="text" rows={5} cols={40} name="description" value={userData.description} onChange={onHandleChange} className="bg-gray-50 border border-gray-500 text-gray-900 sm:text-sm rounded-lg w-[98%] lg:w-[90%] p-2.5 " placeholder="Description about your company/organisation" required />
                                     </div>
                                     <div className="flex items-start">
                                         <div className="flex items-center h-5">

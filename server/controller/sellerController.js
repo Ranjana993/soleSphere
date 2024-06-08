@@ -72,7 +72,7 @@ const register = async (req, res) => {
 
 
 
-const signin = async (req, res) => {
+const signinAsASeller = async (req, res) => {
   try {
     const { email, password } = req.body;
 
@@ -136,5 +136,5 @@ const signin = async (req, res) => {
 
 
 module.exports = {
-  register, signin
+  register, signinAsASeller
 };

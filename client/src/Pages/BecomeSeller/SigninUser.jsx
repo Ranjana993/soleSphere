@@ -1,16 +1,17 @@
 import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import axios from "axios"
+import { login } from "../../../redux/slice/authSlice"
+import { useDispatch } from 'react-redux';
+import toast from "react-hot-toast";
 
-// https://images.unsplash.com/photo-1610899805519-77847d0c4c70?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8ODN8fGZvb3R3ZWFyfGVufDB8fDB8fHww
 
 const SigninUser = () => {
-  const [userData, setUserData] = useState({
-    username: "",
-    email: "",
-    password: ""
-  })
-  const navigate = useNavigate()
+  const [userData, setUserData] = useState({ email: "", password: "" })
+
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
   const onHandleChange = (e) => {
     setUserData((prevUserData) => ({
       ...prevUserData,
@@ -19,11 +20,27 @@ const SigninUser = () => {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
-    const data = await axios.post("https://solesphere.onrender.com/signup", userData)
-    console.log(data?.data)
-    navigate("/login")
-  }
+    e.preventDefault();
+    try {
+      const response = await axios.post("http://localhost:8000/signin-as-a-seller", userData, {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+      const token = response?.data?.user?.id;
+      console.log(token);
+      // Save token to local storage
+      localStorage.setItem('Usertoken', token);
+
+      // Dispatch login action to Redux
+      dispatch(login({ token }));
+      // Redirect to dashboard
+      navigate("/dashboard");
+      toast.success("Succesfully logged in")
+    } catch (error) {
+      console.error(error);
+    }
+  };
   return (
     <>
       <div className="py-12">

@@ -7,7 +7,10 @@ const router = require("./routes/userRoute");
 
 
 const app = express();
-app.use(cors());
+app.use(cors({
+    origin: 'http://localhost:5173/',
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+}));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
@@ -23,4 +26,3 @@ app.get("/", (req, res) => {
 app.listen(PORT, () => console.log(`server is running on http://localhost:${PORT}`))
 
 connectDB();
-// uploadData()
