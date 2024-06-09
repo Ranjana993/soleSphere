@@ -5,7 +5,7 @@ const Contact = lazy(() => import("./Pages/Contact"));
 const Home = lazy(() => import("./Pages/Home"));
 const Login = lazy(() => import("./Pages/Login.jsx"));
 const Header = lazy(() => import("./components/Header"));
-const Dashboard = lazy(() => import("./Pages/Dashboard.jsx"));
+// const Dashboard = lazy(() => import("./Pages/Dashboard.jsx"));
 const Dashboard_Header = lazy(() => import("./components/Dashboard_Header.jsx"));
 const Footer = lazy(() => import("./components/Footer.jsx"));
 const Description = lazy(() => import("./Pages/Detail.jsx"));
@@ -18,6 +18,7 @@ import OfferTitle from "./Pages/OfferTitle.jsx";
 import SignupAsASeller from "./Pages/BecomeSeller/SignupAsASeller.jsx";
 import SigninUser from "./Pages/BecomeSeller/SigninUser.jsx";
 import Register from "./Pages/Register.jsx";
+import Dashboard from "./Pages/Dashboard/Dashboard.jsx";
 
 
 const App = () => {
