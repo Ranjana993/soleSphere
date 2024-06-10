@@ -60,7 +60,7 @@ const Header = () => {
                             {token ? (
                               <>
                                 <li>
-                                  <Link to="/dashboard" className="block px-4 py-2 hover:bg-gray-100 rounded-lg dark:hover:bg-gray-600 dark:hover:text-white">Profile</Link>
+                                  <Link to="/profile" className="block px-4 py-2 hover:bg-gray-100 rounded-lg dark:hover:bg-gray-600 dark:hover:text-white">Profile</Link>
                                 </li>
                                 <li>
                                   <Link to="#" onClick={handleSignOut} className="block px-4 py-2 hover:bg-gray-100 rounded-lg dark:hover:bg-gray-600 dark:hover:text-white">Sign Out</Link>

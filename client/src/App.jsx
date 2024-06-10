@@ -5,11 +5,9 @@ const Contact = lazy(() => import("./Pages/Contact"));
 const Home = lazy(() => import("./Pages/Home"));
 const Login = lazy(() => import("./Pages/Login.jsx"));
 const Header = lazy(() => import("./components/Header"));
-// const Dashboard = lazy(() => import("./Pages/Dashboard.jsx"));
 const Dashboard_Header = lazy(() => import("./components/Dashboard_Header.jsx"));
 const Footer = lazy(() => import("./components/Footer.jsx"));
 const Description = lazy(() => import("./Pages/Detail.jsx"));
-// const Cart = lazy(() => import("./Pages/Cart.jsx"));
 const Cart1 = lazy(() => import("./Pages/Cart1.jsx"));
 const NewBlog = lazy(() => import("./Pages/NewBlog.jsx"));
 import giffi from "./assets/giffi.gif"
@@ -19,6 +17,8 @@ import SignupAsASeller from "./Pages/BecomeSeller/SignupAsASeller.jsx";
 import SigninUser from "./Pages/BecomeSeller/SigninUser.jsx";
 import Register from "./Pages/Register.jsx";
 import Dashboard from "./Pages/Dashboard/Dashboard.jsx";
+import AddProduct from "./Pages/Dashboard/AddProduct.jsx";
+import Profile from "./Pages/Dashboard/Profile.jsx";
 
 
 const App = () => {
@@ -53,6 +53,8 @@ const App = () => {
         <Route path="/new-blog" element={<NewBlog />} />
         <Route path="/sign-up-seller" element={<SignupAsASeller />} />
         <Route path="/sign-in-seller" element={<SigninUser />} />
+        <Route path="/add-product" element={<AddProduct />} />
+        <Route path="/profile" element={<Profile />} />
       </Routes>
       <Footer />
     </Suspense>

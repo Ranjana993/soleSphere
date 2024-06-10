@@ -1,9 +1,7 @@
 // import mongoose from "mongoose";
 const mongoose = require("mongoose")
 
-
 const ProductSchema = new mongoose.Schema({
-
     id: { type: String, required: true, unique: true },
     url: String,
     detailUrl: String,
