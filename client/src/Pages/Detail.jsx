@@ -14,9 +14,15 @@ const Description = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
+
+  const [token, setToken] = useState(null);
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
+  useEffect(() => {
+    const storedToken = localStorage.getItem('Usertoken');
+    setToken(storedToken);
+  }, []);
   useEffect(() => {
     const fetchProduct = async () => {
       try {
@@ -33,6 +39,16 @@ const Description = () => {
     fetchProduct();
   }, [id]);
 
+  const handleCartFn = () => {
+    if (token) {
+      dispatch(addToCart(product))
+      toast.success("Product added successfully")
+      navigate("/cart")
+    } else {
+      navigate("/login")
+    }
+
+  }
   if (loading) {
     return <div>Loading...</div>;
   }
@@ -47,12 +63,7 @@ const Description = () => {
         <div className="w-full p-4 lg:w-1/2  flex flex-col items-center justify-center py-4">
           <img className="w-full border border-slate-300 lg:w-3/4 lg:h-3/4 " src={product?.detailUrl} alt="" />
           <div className="flex flex-row py-4 gap-1 lg:flex-row ">
-            <button onClick={() => {
-              dispatch(addToCart(product))
-              toast.success("Product added successfully")
-              navigate("/cart")
-            }
-            } className="bg-yellow-500 hover:bg-yellow-600 w-44 lg:w-72 text-white flex items-center justify-center gap-4 px-4 py-4"><ShoppingCart className=" text-white hover:rounded-full " /> Add to cart</button>
+            <button onClick={handleCartFn} className="bg-yellow-500 hover:bg-yellow-600 w-44 lg:w-72 text-white flex items-center justify-center gap-4 px-4 py-4"><ShoppingCart className=" text-white hover:rounded-full " /> Add to cart</button>
             <button className="bg-orange-500 hover:bg-orange-600 w-44 lg:w-64 text-white flex items-center justify-center gap-4  py-4 px-4"><Share className=" text-white hover:rounded-full " /> Buy now</button>
           </div>
         </div>

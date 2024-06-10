@@ -19,6 +19,7 @@ import Register from "./Pages/Register.jsx";
 import Dashboard from "./Pages/Dashboard/Dashboard.jsx";
 import AddProduct from "./Pages/Dashboard/AddProduct.jsx";
 import Profile from "./Pages/Dashboard/Profile.jsx";
+import EditProduct from "./Pages/Dashboard/EditProduct.jsx";
 
 
 const App = () => {
@@ -32,13 +33,11 @@ const App = () => {
           <OfferTitle />
           <Dashboard_Header />
         </>
-
       ) : (
         <>
           <OfferTitle />
           <Header />
         </>
-
       )}
       <Routes>
         <Route exact path="/" element={<Home />} />
@@ -55,6 +54,7 @@ const App = () => {
         <Route path="/sign-in-seller" element={<SigninUser />} />
         <Route path="/add-product" element={<AddProduct />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="edit-product" element={<EditProduct />} />
       </Routes>
       <Footer />
     </Suspense>

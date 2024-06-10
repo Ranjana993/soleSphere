@@ -2,7 +2,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { removeFromCart, clearCart } from '../../redux/slice/cartSlice';
 import CartPage from './Cart';
-import thankyou_img from "../assets/thankyou.gif"
 
 const Cart1 = () => {
   const cartItems = useSelector(state => state.cart.cartItems);
