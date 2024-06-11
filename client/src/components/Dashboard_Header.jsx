@@ -11,7 +11,7 @@ const Header = () => {
   const [token, setToken] = useState(null);
 
   useEffect(() => {
-    const storedToken = localStorage.getItem('Usertoken');
+    const storedToken = localStorage.getItem('seller-token');
     setToken(storedToken);
   }, []);
 
@@ -25,7 +25,7 @@ const Header = () => {
 
   const handleSignOut = async (e) => {
     e.preventDefault();
-    localStorage.removeItem('Usertoken');
+    localStorage.removeItem('seller-token');
     setToken(null);
     toast.success("successfully logged out")
     try {

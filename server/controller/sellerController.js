@@ -98,35 +98,8 @@ const signinAsASeller = async (req, res) => {
         message: "Invalid email or password"
       });
     }
-
-    // Generate JWT token
-    const payload = {
-      user: {
-        id: user.id
-      }
-    };
-
-    jwt.sign(
-      payload,
-      process.env.JWT_SECRET,
-      { expiresIn: '1h' },
-      (err, token) => {
-        if (err) throw err;
-        res.status(200).json({
-          token,
-          user: {
-            id: user.id,
-            email: user.email,
-            fullName: user.fullName,
-            contactNumber: user.contactNumber,
-            companyName: user.companyName,
-            location: user.location,
-            buisnessCategory: user.buisnessCategory,
-            description: user.description
-          }
-        });
-      }
-    );
+    res.status(200).json({ message: "registered successfully ", success: true, user });
+    
   } catch (error) {
     console.error(error.message);
     res.status(500).send('Server error');

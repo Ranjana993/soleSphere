@@ -2,6 +2,7 @@ const seller = require("../models/sellerModel");
 const uploadOnCloudinary = require("../config/cloudinary");
 const productModel = require("../models/productModel")
 const fs = require('fs');
+const { default: mongoose } = require("mongoose");
 
 // getting all products
 const getProducts = async (req, res) => {
@@ -18,7 +19,7 @@ const getProducts = async (req, res) => {
 const getProductById = async (req, res) => {
     try {
         const { id } = req.params;
-        const product = await productModel.findById(id); 
+        const product = await productModel.findById(id);
 
         if (!product) {
             return res.status(404).json({ message: 'Product not found' });
@@ -31,18 +32,26 @@ const getProductById = async (req, res) => {
     }
 };
 
-
 // Create a new product
 const uploadproducts = async (req, res) => {
     try {
         // Destructure the incoming form data
-        const { id, title, price, ProductType, quantity, description, discount, tagline } = req.body;
+        const { id, title, price, ProductType, quantity, description, discount, tagline, user } = req.body;
 
         //check duplicate product
         let isExist = await productModel.findOne({ id: id })
         if (isExist) {
             return res.status(400).json({ error: 'This product is already exists' });
         }
+        // checking user if it is existing or not 
+        const exisitingUser = await seller.findById(user)
+        if (!exisitingUser) {
+            return res.status(404).send({
+                success: false,
+                message: "unable to find user",
+            });
+        }
+
         // Get the uploaded files
         const urlFile = req.files['url'] ? req.files['url'][0] : null;
         const detailUrlFile = req.files['detailUrl'] ? req.files['detailUrl'][0] : null;
@@ -70,9 +79,17 @@ const uploadproducts = async (req, res) => {
             quantity,
             description,
             discount,
-            tagline
+            tagline,
+            user
         });
+        const session = await mongoose.startSession();
+        session.startTransaction();
+        await newProduct.save(session);
+        exisitingUser.products.push(newProduct)
+        await exisitingUser.save(session);
+        await session.commitTransaction();
         await newProduct.save();
+
         res.status(201).json({ message: "Product has been successfully uploaded ", newProduct });
     }
     catch (error) {
@@ -85,6 +102,63 @@ const uploadproducts = async (req, res) => {
         }
     }
 };
+
+// Edit products 
+const editProduct = async (req, res) => {
+    const { id } = req.params;
+    const { title, price, ProductType, quantity, description, discount, tagline } = req.body;
+
+    try {
+        // Get the uploaded files
+        const urlFile = req.files['url'] ? req.files['url'][0] : null;
+        const detailUrlFile = req.files['detailUrl'] ? req.files['detailUrl'][0] : null;
+
+        if (!urlFile || !detailUrlFile) {
+            return res.status(400).json({ error: 'Both url and detailUrl files are required' });
+        }
+
+        // Upload files to Cloudinary
+        const urlImageUrl = await uploadOnCloudinary(urlFile.path);
+        const detailUrlImageUrl = await uploadOnCloudinary(detailUrlFile.path);
+
+        if (!urlImageUrl || !detailUrlImageUrl) {
+            return res.status(500).json({ error: 'Failed to upload images to Cloudinary' });
+        }
+
+        const updatedProduct = await Product.findOneAndUpdate(
+            { id },
+            { url: urlImageUrl, detailUrl, title, price, ProductType, quantity, description, discount, tagline },
+            { new: true, runValidators: true }
+        );
+
+        if (!updatedProduct) {
+            return res.status(404).json({ message: 'Product not found' });
+        }
+        res.status(200).json({ message: 'Product updated successfully', product: updatedProduct });
+    } catch (error) {
+        res.status(500).json({ message: 'Failed to update product', error: error.message });
+    }
+};
+
+
+// delete product
+
+// DELETE /delete-product/:id
+const deleteProduct = async (req, res) => {
+    const { id } = req.params
+    try {
+        const product = await productModel.findByIdAndDelete(id)
+
+        if (!product) {
+            return res.status(404).json({ message: 'Product not found' })
+        }
+
+        res.status(200).json({ message: 'Product deleted successfully' })
+    } catch (error) {
+        console.error('Error deleting product:', error)
+        res.status(500).json({ message: 'Server error' })
+    }
+}
 
 
 // getting product according to user registered as a seller ...
@@ -104,4 +178,11 @@ const userProductController = async (req, res) => {
 
 
 
-module.exports = { getProducts, uploadproducts, userProductController, getProductById } 
+module.exports = {
+    getProducts,
+    uploadproducts,
+    userProductController,
+    getProductById,
+    editProduct,
+    deleteProduct
+} 

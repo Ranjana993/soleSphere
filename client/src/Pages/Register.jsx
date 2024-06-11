@@ -8,7 +8,7 @@ const Register = () => {
     username: "",
     email: "",
     password: "",
-    contact:""
+    contactNo:""
   })
   const navigate = useNavigate()
   const onHandleChange = (e) => {
@@ -20,10 +20,10 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    const data = await axios.post("https://solesphere.onrender.com/signup", userData)
+    const data = await axios.post("http://localhost:8000/signup", userData)
     // const data = await axios.post("https:localhost:8000/signup", userData)
     console.log(data?.data)
-    navigate("/sign-in-seller")
+    navigate("/login")
   }
   return (
     <>
@@ -51,7 +51,7 @@ const Register = () => {
                   </div>
                   <div>
                     <label htmlFor="contact" className="block mb-2 text-sm font-mono text-gray-900  font-bold ">Your Contact No.</label>
-                    <input type="text" name="contact" value={userData.contact} onChange={onHandleChange} className="bg-gray-50 border border-gray-500 text-gray-900 sm:text-sm rounded-lg w-[98%] lg:w-[90%] p-2.5 " placeholder="+91 412411" required />
+                    <input type="text" name="contactNo" value={userData.contactNo} onChange={onHandleChange} className="bg-gray-50 border border-gray-500 text-gray-900 sm:text-sm rounded-lg w-[98%] lg:w-[90%] p-2.5 " placeholder="+91 412411" required />
                   </div>
                   
                   <button type="submit" onSubmit={handleSubmit} className="w-[98%] lg:w-[90%] text-white bg-[#ee8b2e] hover:bg-orange-900 text-sm px-5 py-3 rounded-lg text-center dark:bg-primary-600 dark:hover:bg-primary-700 ">Create an account</button>

@@ -22,15 +22,16 @@ const SigninUser = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("https://solesphere-backend12.onrender.com/signin-as-a-seller", userData, {
+      const response = await axios.post("http://localhost:8000/signin-as-a-seller", userData, {
         headers: {
           'Content-Type': 'application/json'
         }
       });
-      const token = response?.data?.user?.id;
+      console.log("response while registering " ,response)
+      const token = response?.data?.user?._id;
       console.log(token);
       // Save token to local storage
-      localStorage.setItem('Usertoken', token);
+      localStorage.setItem('seller-token', token);
 
       // Dispatch login action to Redux
       dispatch(login({ token }));

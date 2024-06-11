@@ -4,7 +4,6 @@ import axios from "axios"
 
 const Login = () => {
   const [userData, setUserData] = useState({
-    username: "",
     email: "",
     password: ""
   })
@@ -18,9 +17,11 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    const data = await axios.post("https://solesphere.onrender.com/signup", userData)
-    console.log(data?.data)
-    navigate("/login")
+    const response  = await axios.post("http://localhost:8000/signin", userData)
+    console.log(response?.data)
+    const token = response.data.token;
+    localStorage.setItem('user-Token', token);
+    navigate("/")
   }
   return (
     <>

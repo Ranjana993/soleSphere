@@ -1,7 +1,20 @@
 import { Link, useNavigate } from "react-router-dom"
+import { useDispatch } from 'react-redux'
+import axios from 'axios'
+import { removeProduct } from "../../../redux/slice/productSlice"
 
 const MainUI = () => {
   const navigate = useNavigate()
+  const dispatch = useDispatch()
+
+  const handleDelete = async (id) => {
+    try {
+      await axios.delete(`http://localhost:8000/delete-product/${id}`)
+      dispatch(removeProduct(id))
+    } catch (error) {
+      console.error('Failed to delete product:', error)
+    }
+  }
 
   return (
     <div className="py-2 lg:py-4 pb-12">
@@ -23,7 +36,6 @@ const MainUI = () => {
                   <div className="relative group">
                     <Link className="relative mx-3 mt-3 flex h-42 lg:h-52 overflow-hidden rounded-sm" to="#">
                       <img className="object-cover w-full rounded-lg" src="https://rukminim2.flixcart.com/image/612/612/xif0q/shoe/r/e/m/-original-imagsfdvuffvqx4x.jpeg?q=70" alt="product image" />
-                      
                     </Link>
                     <div className="mt-4 px-5 pb-5 flex flex-col">
                       <Link to="#">
@@ -43,10 +55,27 @@ const MainUI = () => {
                         </Link>
                       </div>
                     </div>
-                    <button onClick={()=>navigate("/edit-product")} className="absolute top-0 right-0 m-2 p-2 bg-blue-600 text-white rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
-                      <svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-pencil-ruler"><path d="m15 5 4 4" /><path d="M13 7 8.7 2.7a2.41 2.41 0 0 0-3.4 0L2.7 5.3a2.41 2.41 0 0 0 0 3.4L7 13" /><path d="m8 6 2-2" /><path d="m2 22 5.5-1.5L21.17 6.83a2.82 2.82 0 0 0-4-4L3.5 16.5Z" /><path d="m18 16 2-2" /><path d="m17 11 4.3 4.3c.94.94.94 2.46 0 3.4l-2.6 2.6c-.94.94-2.46.94-3.4 0L11 17" /></svg>
-
-                    </button>
+                    <div className="absolute top-0 right-0 m-2 flex space-x-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                      <button onClick={() => navigate("/edit-product")} className="p-2 bg-blue-600 text-white rounded-full">
+                        <svg xmlns="http://www.w3.org/2000/svg" width={18} height={18} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-pencil-ruler">
+                          <path d="m15 5 4 4" />
+                          <path d="M13 7 8.7 2.7a2.41 2.41 0 0 0-3.4 0L2.7 5.3a2.41 2.41 0 0 0 0 3.4L7 13" />
+                          <path d="m8 6 2-2" />
+                          <path d="m2 22 5.5-1.5L21.17 6.83a2.82 2.82 0 0 0-4-4L3.5 16.5Z" />
+                          <path d="m18 16 2-2" />
+                          <path d="m17 11 4.3 4.3c.94.94.94 2.46 0 3.4l-2.6 2.6c-.94.94-2.46.94-3.4 0L11 17" />
+                        </svg>
+                      </button>
+                      <button onClick={() => handleDelete(index)} className="p-2 bg-red-600 text-white rounded-full">
+                        <svg xmlns="http://www.w3.org/2000/svg" width={18} height={18} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-trash-2">
+                          <path d="M3 6h18" />
+                          <path d="M19 6l-2 14H7L5 6" />
+                          <path d="M10 11v6" />
+                          <path d="M14 11v6" />
+                          <path d="M17 6V4a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v2" />
+                        </svg>
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
