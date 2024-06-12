@@ -15,6 +15,22 @@ const getProducts = async (req, res) => {
     }
 }
 
+// getting all seller products 
+const getAllSellerProducts = async (req, res) => {
+    try {
+        const product = await seller.findById(req.params.id).populate("products");
+        if (!product) {
+            return res.status(401).send({ success: false, message: "product not found" })
+        }
+        return res.status(200).send({ success: true, message: "blog  found", product })
+
+    }
+    catch (error) {
+        console.log(error);
+        return res.status(400).send({ success: false, message: "Errror in seller product ", error })
+    }
+}
+
 // getting products by id 
 const getProductById = async (req, res) => {
     try {
@@ -184,5 +200,6 @@ module.exports = {
     userProductController,
     getProductById,
     editProduct,
-    deleteProduct
+    deleteProduct,
+    getAllSellerProducts
 } 

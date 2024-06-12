@@ -4,12 +4,15 @@ import MainUI from "./MainUI"
 
 const Dashboard = () => {
   const navigate = useNavigate();
+  
+
+
   return (
     <div className="">
       <div className="flex justify-around items-center py-4 lg:py-6">
         <h4 className="text-gray-900 text-3xl hidden lg:block ml-12 w-[30%] font-noto-serif">Products</h4>
         <div className="w-[60%] lg:w-[30%] pl-4 lg:pl-0">
-          <input type="text" className="bg-gray-50 border outline-none rounded-full  border-gray-200 px-8 py-2 w-full"  placeholder="Search here..." />
+          <input type="text" className="bg-gray-50 border outline-none rounded-full  border-gray-200 px-8 py-2 w-full" placeholder="Search here..." />
         </div>
         <div className="w-[40%] lg:w-[30%] flex justify-end pr-2">
           <button onClick={() => navigate("/add-product")} className="bg-green-600 px-4 lg:px-8 py-2 text-white flex items-center rounded-full">
@@ -19,7 +22,7 @@ const Dashboard = () => {
         </div>
       </div>
       <div className="">
-        <MainUI />
+        <MainUI/>
       </div>
     </div>
   )

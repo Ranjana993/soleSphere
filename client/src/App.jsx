@@ -1,6 +1,5 @@
 import { lazy, Suspense } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
-const CollectionPage = lazy(() => import("./Pages/CollectionPage"));
 const Contact = lazy(() => import("./Pages/Contact"));
 const Home = lazy(() => import("./Pages/Home"));
 const Login = lazy(() => import("./Pages/Login.jsx"));
@@ -45,7 +44,6 @@ const App = () => {
         <Route exact path="/register" element={<Register />} />
         <Route exact path="/contact" element={<Contact />} />
         <Route exact path="/about-us" element={<Aboutus />} />
-        <Route exact path="/best-collection" element={<CollectionPage />} />
         <Route path="/product/:id" element={<Description />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/cart" element={<Cart1 />} />
