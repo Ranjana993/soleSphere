@@ -65,7 +65,7 @@ const AddProduct = () => {
       });
       console.log('Product added successfully:', formData);
       toast.success("Products added successfully")
-      navigate("/") 
+      navigate("/dashboard") 
     } catch (error) {
       console.error('Failed to add product:', error);
       toast.error("Failed while adding product:", error);

@@ -23,7 +23,7 @@ const Contact = () => {
                     <div className="relative mb-6" data-te-input-wrapper-init>
                       <textarea className="text-white peer block min-h-[auto] w-full rounded border border-white  bg-transparent py-[0.32rem] px-3 leading-[1.6] outline-none " rows={3} placeholder="Your message" />
                     </div>
-                    <button type="button" className="mb-6 inline-block w-full font-bold rounded bg-[#EB6D19] hover:bg-[#CB5303]  px-6  py-4  text-xs uppercase leading-normal border border-white text-white ">
+                    <button type="button" className="mb-6 inline-block w-full font-bold rounded bg-[#20368d] hover:bg-[#3c3391]  px-6  py-4  text-xs uppercase leading-normal border border-white text-white ">
                       Send
                     </button>
                   </form>

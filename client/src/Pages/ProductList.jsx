@@ -135,11 +135,11 @@ const ProductList = () => {
                             {
                                 paginatedData().map(item => (
 
-                                    <div key={item._id} className='w-[47%] sm:w-[23%] md:w-[36%] lg:w-1/6'>
-                                        <div key={item.id} className="relative m-2 lg:m-5 border rounded-lg border-[#EB6440] flex flex-col w-full h-full max-w-xs overflow-hidden shadow-xl hover:shadow-gray-500 bg-white">
+                                    <div key={item._id} className='w-[80%] h-auto sm:w-[23%] md:w-[36%] lg:w-1/6'>
+                                        <div key={item.id} className="relative m-2 lg:m-5 border rounded-lg border-[#EB6440] flex flex-col  max-w-xs overflow-hidden shadow-xl hover:shadow-gray-500 bg-white">
                                             <Link>
                                                 <Link className="relative mx-3 mt-3 flex h-42 lg:h-52 overflow-hidden rounded-sm" to="#">
-                                                    <img className="object-cover w-full rounded-lg" src={item?.url} alt="product image" />
+                                                    <img className="object-contain w-full rounded-lg" src={item?.url} alt="product image" />
                                                     <span className="absolute top-0 left-0 m-2 rounded-sm bg-black px-2 text-center text-sm font-medium text-white">{item?.price?.discount}% OFF</span>
                                                 </Link>
                                                 <div className="mt-4 px-5 pb-5 flex flex-col">

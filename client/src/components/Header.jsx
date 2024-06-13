@@ -11,65 +11,50 @@ const Header = () => {
     const [sellertoken, setSellerToken] = useState(null);
     const [usertoken, setUserToken] = useState(null);
 
-
     useEffect(() => {
-        const storedToken = localStorage.getItem('seller-token');
-        setSellerToken(storedToken);
+        const storedSellerToken = localStorage.getItem('seller-token');
+        setSellerToken(storedSellerToken);
     }, []);
 
     useEffect(() => {
-        const storedToken = localStorage.getItem('user-Token');
-        setUserToken(storedToken);
+        const storedUserToken = localStorage.getItem('user-Token');
+        setUserToken(storedUserToken);
     }, []);
-
-    // useEffect(() => {
-    //     if (usertoken) {
-    //         localStorage.removeItem('seller-Token');
-
-    //     } else {
-    //         localStorage.removeItem('user-Token');
-    //     }
-    // }, [])
 
     const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
     const handleOpen = () => setOpen(!open);
 
-
-    // const handleSellerSignOut = async (e) => {
-    //     e.preventDefault();
-    //     localStorage.removeItem('seller-token');
-    //     setSellerToken(null);
-    //     toast.success("successfully logged out")
-    //     try {
-    //         const res = await axios.post("https://solesphere.onrender.com/logout");
-    //         console.log("Signout==> ", res);
-    //         toast.success("successfully logged out")
-    //     } catch (error) {
-    //         console.error("Error signing out", error);
-    //     }
-    // };
-
-    const handleUserSignOut1 = () => {
-        localStorage.removeItem('user-token');
-        localStorage.removeItem('seller-token');
-        // Additional sign-out logic
+    const handleUserSignOut = async (e) => {
+        e.preventDefault();
+        localStorage.removeItem('user-Token');
+        setUserToken(null);
+        toast.success("Successfully logged out");
+        try {
+            const res = await axios.post("https://solesphere.onrender.com/logout");
+            console.log("Signout==> ", res);
+            toast.success("Successfully logged out");
+        } catch (error) {
+            console.error("Error signing out", error);
+        }
     };
-    // const handleUserSignOut = async (e) => {
-    //     e.preventDefault();
-    //     localStorage.removeItem('user-Token');
-    //     setSellerToken(null);
-    //     toast.success("successfully logged out")
-    //     try {
-    //         const res = await axios.post("https://solesphere.onrender.com/logout");
-    //         console.log("Signout==> ", res);
-    //         toast.success("successfully logged out")
-    //     } catch (error) {
-    //         console.error("Error signing out", error);
-    //     }
-    // };
+
+    const handleSellerSignOut = async (e) => {
+        e.preventDefault();
+        localStorage.removeItem('seller-token');
+        setSellerToken(null);
+        toast.success("Successfully logged out");
+        try {
+            const res = await axios.post("https://solesphere.onrender.com/logout");
+            console.log("Signout==> ", res);
+            toast.success("Successfully logged out");
+        } catch (error) {
+            console.error("Error signing out", error);
+        }
+    };
+
     return (
         <>
-            <nav className="bg-white relative sticky top-0 left-0 border-b border-gray-400 z-[999]">
+            <nav className="bg-white sticky top-0 left-0 border-b border-gray-400 z-[999]">
                 <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
                     <Link to={"/"} className="flex items-center space-x-3 rtl:space-x-reverse">
                         <h3 className="playfair-display-extrabold noto-serif-bold text-3xl font-bold text-[#0d485d]">FootFly</h3>
@@ -77,106 +62,38 @@ const Header = () => {
 
                     <div className="md:order-2">
                         <div className="flex flex-row gap-4">
-                            {/* <div>
-                                <Link to={"#"} >
+                            <div>
+                                <Link to={"#"}>
                                     <div onClick={handleOpen} className="relative hidden lg:block">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-user-round"><circle cx="12" cy="8" r="5" /><path d="M20 21a8 8 0 0 0-16 0" /></svg>
-                                        
                                         {
                                             open && (
                                                 <div className="absolute top-45 bg-red divide-y rounded-lg shadow w-44">
                                                     <ul className="py-2 text-sm rounded-lg p-2 bg-[#070F2B]/90 text-gray-700 dark:text-gray-200" aria-labelledby="dropdownUserAvatarButton">
                                                         {
-                                                            usertoken ? (
+                                                            sellertoken ? (
                                                                 <>
                                                                     <li>
-                                                                        <Link to="#" onClick={handleUserSignOut} className="block px-4 py-2 hover:bg-gray-100 rounded-lg dark:hover:bg-gray-600 dark:hover:text-white">Sign Out</Link>
+                                                                        <Link to="/dashboard" className="block px-4 py-2 hover:bg-gray-100 rounded-lg dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</Link>
+                                                                    </li>
+                                                                    <li>
+                                                                        <Link to="#" onClick={handleSellerSignOut} className="block px-4 py-2 hover:bg-gray-100 rounded-lg dark:hover:bg-gray-600 dark:hover:text-white">Sign Out</Link>
                                                                     </li>
                                                                 </>
+                                                            ) : usertoken ? (
+                                                                <li>
+                                                                    <Link to="#" onClick={handleUserSignOut} className="block px-4 py-2 hover:bg-gray-100 rounded-lg dark:hover:bg-gray-600 dark:hover:text-white">Sign Out</Link>
+                                                                </li>
                                                             ) : (
                                                                 <li>
                                                                     <Link to="/login" className="block px-4 py-2 hover:bg-gray-100 rounded-lg dark:hover:bg-gray-600 dark:hover:text-white">Sign in</Link>
                                                                 </li>
-                                                            )}
+                                                            )
+                                                        }
                                                     </ul>
                                                 </div>
                                             )
                                         }
-                                    </div>
-                                </Link>
-                            </div>  */}
-                            <div>
-                                <Link to={"#"}>
-                                    <div onClick={handleOpen} className="relative hidden lg:block">
-                                        <svg
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            width="24"
-                                            height="24"
-                                            viewBox="0 0 24 24"
-                                            fill="none"
-                                            stroke="currentColor"
-                                            strokeWidth="2"
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                            className="lucide lucide-user-round"
-                                        >
-                                            <circle cx="12" cy="8" r="5" />
-                                            <path d="M20 21a8 8 0 0 0-16 0" />
-                                        </svg>
-                                        {/* Dropdown menu */}
-                                        {open && (
-                                            <div className="absolute top-45 bg-red divide-y rounded-lg shadow w-44">
-                                                <ul
-                                                    className="py-2 text-sm rounded-lg p-2 bg-[#070F2B]/90 text-gray-700 dark:text-gray-200"
-                                                    aria-labelledby="dropdownUserAvatarButton"
-                                                >
-                                                    {
-                                                        usertoken ? (
-                                                            <>
-                                                                {
-                                                                    sellertoken ? (<>
-                                                                        <Link
-                                                                            to="/dashboard"
-                                                                            onClick={"handleUserSignOut1"}
-                                                                            className="block px-4 py-2 hover:bg-gray-100 rounded-lg dark:hover:bg-gray-600 dark:hover:text-white"
-                                                                        >
-                                                                            dashboard
-                                                                        </Link>
-                                                                        <Link
-                                                                            to="/dashboard"
-                                                                            onClick={"handleUserSignOut1"}
-                                                                            className="block px-4 py-2 hover:bg-gray-100 rounded-lg dark:hover:bg-gray-600 dark:hover:text-white"
-                                                                        >
-                                                                            dashboard
-                                                                        </Link>
-                                                                    </>
-                                                                    ) : (
-                                                                        null
-                                                                    )
-                                                                }
-                                                                <li>
-                                                                    <Link
-                                                                        to="#"
-                                                                        onClick={handleUserSignOut1}
-                                                                        className="block px-4 py-2 hover:bg-gray-100 rounded-lg dark:hover:bg-gray-600 dark:hover:text-white"
-                                                                    >
-                                                                        Sign Out
-                                                                    </Link>
-                                                                </li>
-                                                            </>
-                                                        ) : (
-                                                            <li>
-                                                                <Link
-                                                                    to="/login"
-                                                                    className="block px-4 py-2 hover:bg-gray-100 rounded-lg dark:hover:bg-gray-600 dark:hover:text-white"
-                                                                >
-                                                                    Sign in
-                                                                </Link>
-                                                            </li>
-                                                        )}
-                                                </ul>
-                                            </div>
-                                        )}
                                     </div>
                                 </Link>
                             </div>

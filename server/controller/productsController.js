@@ -119,42 +119,67 @@ const uploadproducts = async (req, res) => {
     }
 };
 
-// Edit products 
+
 const editProduct = async (req, res) => {
     const { id } = req.params;
+    console.log("id ", id);
+
+    const product = await productModel.findById(id);
+    if (!product) {
+        return res.status(404).json({ message: 'Product not found' });
+    }
+
     const { title, price, ProductType, quantity, description, discount, tagline } = req.body;
 
     try {
-        // Get the uploaded files
-        const urlFile = req.files['url'] ? req.files['url'][0] : null;
-        const detailUrlFile = req.files['detailUrl'] ? req.files['detailUrl'][0] : null;
+        let urlImageUrl, detailUrlImageUrl;
 
-        if (!urlFile || !detailUrlFile) {
-            return res.status(400).json({ error: 'Both url and detailUrl files are required' });
+        // Handle the file uploads
+        if (req.files) {
+            const urlFile = req.files['url'] ? req.files['url'][0] : null;
+            const detailUrlFile = req.files['detailUrl'] ? req.files['detailUrl'][0] : null;
+
+            if (urlFile) {
+                urlImageUrl = await uploadOnCloudinary(urlFile.path);
+                if (!urlImageUrl) {
+                    return res.status(500).json({ error: 'Failed to upload url image to Cloudinary' });
+                }
+            }
+
+            if (detailUrlFile) {
+                detailUrlImageUrl = await uploadOnCloudinary(detailUrlFile.path);
+                if (!detailUrlImageUrl) {
+                    return res.status(500).json({ error: 'Failed to upload detailUrl image to Cloudinary' });
+                }
+            }
         }
 
-        // Upload files to Cloudinary
-        const urlImageUrl = await uploadOnCloudinary(urlFile.path);
-        const detailUrlImageUrl = await uploadOnCloudinary(detailUrlFile.path);
+        // Build the update object
+        let updateFields = { title, price, ProductType, quantity, description, discount, tagline };
+        if (urlImageUrl) updateFields.url = urlImageUrl;
+        if (detailUrlImageUrl) updateFields.detailUrl = detailUrlImageUrl;
 
-        if (!urlImageUrl || !detailUrlImageUrl) {
-            return res.status(500).json({ error: 'Failed to upload images to Cloudinary' });
-        }
+        console.log("Update fields:", updateFields);
 
-        const updatedProduct = await Product.findOneAndUpdate(
-            { id },
-            { url: urlImageUrl, detailUrl, title, price, ProductType, quantity, description, discount, tagline },
+        const updatedProduct = await productModel.findByIdAndUpdate(
+            id,
+            updateFields,
             { new: true, runValidators: true }
         );
 
         if (!updatedProduct) {
             return res.status(404).json({ message: 'Product not found' });
         }
+
+        console.log("Updated product:", updatedProduct);
         res.status(200).json({ message: 'Product updated successfully', product: updatedProduct });
     } catch (error) {
         res.status(500).json({ message: 'Failed to update product', error: error.message });
     }
 };
+
+
+
 
 
 // delete product
