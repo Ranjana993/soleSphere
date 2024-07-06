@@ -68,7 +68,7 @@ const EditProduct = () => {
     e.preventDefault();
     try {
       console.log(formData);
-      const response = await axios.put(`http://localhost:8000/edit-product/${id}`, formData);
+      const response = await axios.put(`https://solesphere-backend12.onrender.com/edit-product/${id}`, formData);
       toast.success("Product updated successfully");
       console.log(formData);
       navigate("/dashboard");

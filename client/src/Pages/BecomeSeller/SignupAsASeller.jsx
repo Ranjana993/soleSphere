@@ -25,7 +25,7 @@ const SignupAsASeller = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
-            const response = await axios.post("http://localhost:8000/register-as-a-seller", userData, {
+            const response = await axios.post("https://solesphere-backend12.onrender.com/register-as-a-seller", userData, {
                 headers: {
                     'Content-Type': 'application/json'
                 }

@@ -76,7 +76,7 @@ const MainUI = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:8000/delete-product/${id}`);
+      await axios.delete(`https://solesphere-backend12.onrender.com/delete-product/${id}`);
       setFilteredData(filteredData.filter(item => item._id !== id));
     } catch (error) {
       console.error('Failed to delete product:', error);

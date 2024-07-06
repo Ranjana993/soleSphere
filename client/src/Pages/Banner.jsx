@@ -44,7 +44,6 @@ const Banner = () => {
             {
                 bannerData.map((data) => (
                     <div key={data?.id} ><img className="w-full aspect-auto" src={data?.url} alt="logo" /> </div>
-
                 ))
             }
         </Carousel>
