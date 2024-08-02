@@ -58,7 +58,7 @@ const AddProduct = () => {
     data.append('user', sellerId);
 
     try {
-      await axios.post('https://solesphere-backend12.onrender.com/upload-product', data, {
+      await axios.post('http://localhost:8000/upload-product', data, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
