@@ -22,12 +22,12 @@ const SigninUser = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("https://solesphere-backend12.onrender.com/signin-as-a-seller", userData, {
+      const response = await axios.post("http://localhost:8000/signin-as-a-seller", userData, {
         headers: {
           'Content-Type': 'application/json'
         }
       });
-      console.log("response while registering " ,response)
+      console.log("response while registering ", response)
       const token = response?.data?.user?._id;
       console.log(token);
       // Save token to local storage
@@ -40,6 +40,7 @@ const SigninUser = () => {
       toast.success("Succesfully logged in")
     } catch (error) {
       console.error(error);
+      toast.error("Error while login userr as a seller ", error)
     }
   };
   return (
