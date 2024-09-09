@@ -38,7 +38,6 @@ const register = async (req, res) => {
       password: hashedPassword
     });
 
-    console.log("newUser...", newUser);
     // Save user to the database
     await newUser.save();
 

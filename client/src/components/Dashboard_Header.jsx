@@ -30,7 +30,6 @@ const Header = () => {
     toast.success("successfully logged out")
     try {
       const res = await axios.post("https://solesphere.onrender.com/logout");
-      console.log("Signout==> ", res);
       toast.success("successfully logged out")
     } catch (error) {
       console.error("Error signing out", error);

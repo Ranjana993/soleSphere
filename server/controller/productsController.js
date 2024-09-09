@@ -36,7 +36,6 @@ const getProductById = async (req, res) => {
     try {
         const { id } = req.params;
         const product = await productModel.findById(id);
-
         if (!product) {
             return res.status(404).json({ message: 'Product not found' });
         }
@@ -122,7 +121,6 @@ const uploadproducts = async (req, res) => {
 
 const editProduct = async (req, res) => {
     const { id } = req.params;
-    console.log("id ", id);
 
     const product = await productModel.findById(id);
     if (!product) {
@@ -159,8 +157,6 @@ const editProduct = async (req, res) => {
         if (urlImageUrl) updateFields.url = urlImageUrl;
         if (detailUrlImageUrl) updateFields.detailUrl = detailUrlImageUrl;
 
-        console.log("Update fields:", updateFields);
-
         const updatedProduct = await productModel.findByIdAndUpdate(
             id,
             updateFields,
@@ -170,8 +166,6 @@ const editProduct = async (req, res) => {
         if (!updatedProduct) {
             return res.status(404).json({ message: 'Product not found' });
         }
-
-        console.log("Updated product:", updatedProduct);
         res.status(200).json({ message: 'Product updated successfully', product: updatedProduct });
     } catch (error) {
         res.status(500).json({ message: 'Failed to update product', error: error.message });

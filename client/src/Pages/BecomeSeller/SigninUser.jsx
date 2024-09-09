@@ -27,9 +27,7 @@ const SigninUser = () => {
           'Content-Type': 'application/json'
         }
       });
-      console.log("response while registering ", response)
       const token = response?.data?.user?._id;
-      console.log(token);
       // Save token to local storage
       localStorage.setItem('seller-token', token);
 

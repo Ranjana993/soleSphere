@@ -5,13 +5,10 @@ const jwt = require('jsonwebtoken');
 
 const signupUser = async (req, res) => {
     try {
-        console.log(req.body);
         const { username, email, password , contactNo } = req.body;
-
         if (!username || !email || !password || !contactNo) {
             return res.status(403).json({ msg: "Please provide all credentials..." });
         }
-
         const isExist = await User.findOne({ email });
 
         if (isExist) {
@@ -21,7 +18,6 @@ const signupUser = async (req, res) => {
 
         // Create a new user instance with the User model
         const newUser = await new User({ username, email, password: hashedPassword, contactNo }).save();
-        console.log(newUser);
 
         return res.status(200).json({ msg: "User successfully created...", newUser });
     } catch (error) {
@@ -33,7 +29,6 @@ const signupUser = async (req, res) => {
 
 const signinUser = async (req, res) => {
     try {
-        console.log(req.body);
         const { email, password } = req.body;
 
         if (!email || !password) {
@@ -54,12 +49,10 @@ const signinUser = async (req, res) => {
 
         // Generate a JWT token
         const token = jwt.sign({ userId: existingUser._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
-        console.log("token", token);
         res.cookie('token', token, { httpOnly: true });
         return res.status(200).json({ msg: "Sign-in successful", token });
 
     } catch (error) {
-        console.error("error=====", error);
         return res.status(500).json({ msg: "Something went wrong on the backend side while signing in the user." });
     }
 }

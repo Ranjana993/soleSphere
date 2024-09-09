@@ -8,7 +8,6 @@ const storage = multer.diskStorage({
     }
   },
   filename: (req, file, cb) => {
-    // console.log("inside filename", file);
     const name = Date.now() + '_' + file.originalname
     cb(null, name)
   }

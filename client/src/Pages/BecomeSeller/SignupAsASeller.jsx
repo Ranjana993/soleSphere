@@ -30,7 +30,6 @@ const SignupAsASeller = () => {
                     'Content-Type': 'application/json'
                 }
             });
-            console.log(response?.data?.newUser?._id)
             // console.log("userData....",userData);
             toast.success(response.message)
             navigate("/sign-in-seller")

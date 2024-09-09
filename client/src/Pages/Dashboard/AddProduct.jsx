@@ -63,7 +63,6 @@ const AddProduct = () => {
           'Content-Type': 'multipart/form-data'
         }
       });
-      console.log('Product added successfully:', formData);
       toast.success("Products added successfully")
       navigate("/dashboard") 
     } catch (error) {

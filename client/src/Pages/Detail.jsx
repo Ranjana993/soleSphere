@@ -27,7 +27,6 @@ const Description = () => {
     const fetchProduct = async () => {
       try {
         const res = await axios.get(`https://solesphere-backend12.onrender.com/get-products/${id}`);
-        console.log(res);
         setProduct(res.data.product);
       } catch (error) {
         console.error('Error fetching product:', error);
