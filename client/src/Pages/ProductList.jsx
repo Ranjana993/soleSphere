@@ -14,7 +14,7 @@ const ProductList = () => {
     const [loading, setLoading] = useState(true);
     const [filteredData, setFilteredData] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
-    const itemsPerPage = 10;
+    const itemsPerPage = 9;
     const dispatch = useDispatch();
 
 
@@ -135,7 +135,7 @@ const ProductList = () => {
                             {
                                 paginatedData().map(item => (
 
-                                    <div key={item._id} className='w-[80%] h-auto sm:w-[23%] md:w-[36%] lg:w-1/6'>
+                                    <div key={item._id} className='w-[80%] h-auto sm:w-[23%] md:w-[36%] lg:w-1/4'>
                                         <div key={item.id} className="relative m-2 lg:m-5 border rounded-lg border-[#EB6440] flex flex-col  max-w-xs overflow-hidden shadow-xl hover:shadow-gray-500 bg-white">
                                             <Link>
                                                 <Link className="relative mx-3 mt-3 flex h-42 lg:h-52 overflow-hidden rounded-sm" to="#">
